@@ -1,0 +1,95 @@
+/* =========================================================================
+   ACC 6 BOLD — Design tokens
+   Extraídos de undplus.com (Framer, nov 2026) con medición directa del DOM.
+   Ver DESIGN-SYSTEM.md para el razonamiento de cada decisión.
+   ========================================================================= */
+
+:root {
+  /* ---- Color · base ---------------------------------------------------- */
+  --c-black: #000000;
+  --c-white: #ffffff;
+  --c-meta: #666666;              /* tags / metadatos sobre blanco */
+  --c-meta-inv: #999999;          /* tags / metadatos sobre negro */
+  --c-muted: rgba(0, 0, 0, 0.5);  /* ítems inactivos de lista en hover */
+
+  /* ---- Color · paleta en pares (claro = forma, profundo = fondo) ------- */
+  --c-coral:  #ff5850;  --c-coral-deep:  #b3261f;
+  --c-yellow: #ffd650;  --c-yellow-deep: #ffb900;
+  --c-lilac:  #ca9df1;  --c-lilac-deep:  #81649a;
+  --c-sky:    #93d4f2;  --c-sky-deep:    #295c93;
+  --c-green:  #0daa75;  --c-green-deep:  #2f6855;
+  --c-peach:  #f3c6b1;  --c-peach-deep:  #af3540;
+  --c-pink:   #f08fc7;  --c-pink-deep:   #a92571;
+  --c-stone:  #aeaeb2;  --c-stone-deep:  #c7c7cc;
+
+  /* ---- Color · marca ACC (heredado de ACC 3 C) ------------------------- */
+  --c-acc-pink: #fbc2f2;          /* --highlight-pink de ACC 3 C · fondo de Noticias */
+  --c-acc-coral: #ff5850;         /* --accent de ACC 3 C · CTA «Más proyectos» y franja newsletter */
+  --c-acc-mint: #b9d7cf;          /* CTA «Todas las noticias» */
+  --c-acc-mint-light: #dae8e4;    /* fondo de Noticias */
+
+  /* ---- Tipografía ------------------------------------------------------ */
+  --font: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif; /* antes Poppins (UndPlus) */
+
+  /* Escala · desktop (≥1200px) */
+  --t-mega: 807px;          /* 900 · lh 1        — marquee gigante del hero */
+  --t-section: 108px;       /* 700 · lh 1.1      — títulos de sección (MAYÚSCULAS) */
+  --t-statement: 64px;      /* 600 · lh 1.2      — manifiesto con formas inline */
+  --t-claim: 60px;          /* 600 · lh 1.2      — tope del claim del hero (en desktop lo ajusta js/main.js a la frase más larga) */
+  --t-list: 52px;           /* 500 · lh 1.2      — lista de sectores */
+  --t-subtitle: 38px;       /* 500 · lh 1.2      — subtítulo de sección */
+  --t-h3: 24px;             /* 500 · lh 1.2      — títulos de tarjeta / etiquetas */
+  --t-button: 18px;         /* 500 · lh 1.6 · -0.02em */
+  --t-nav: 16px;            /* 500 · lh 1.4 · -0.02em */
+  --t-body: 16px;           /* 400 · lh 1.6 */
+  --t-tag: 16px;            /* 400 · lh 1.6 */
+  --t-marquee: 20px;        /* 400 · lh 1 (ampliado respecto a los 16px de UndPlus) */
+
+  --w-list: 500;
+  --w-project: 600;        /* marca + título de proyecto (tarjetas y listado de Proyectos) */
+
+  /* ---- Espacio --------------------------------------------------------- */
+  --pad: 40px;              /* margen lateral global */
+  --nav-top: 55px;          /* línea superior de la nav */
+  --sticky-title-top: 130px;
+  --row-gap: 120px;         /* entre filas del grid de casos */
+  --strip-h: 48px;          /* franja marquee newsletter (UndPlus: 37px) */
+  --logos-h: 52px;          /* franja de logos de clientes */
+
+  /* ---- Movimiento ------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.25s;
+  --dur: 0.45s;
+}
+
+/* Tablet (810–1199px) */
+@media (max-width: 1199px) {
+  :root {
+    --t-claim: 52px;
+    --t-section: 72px;
+    --t-list: 42px;
+    --t-h3: 20px;
+  }
+}
+
+/* Móvil (<810px) */
+@media (max-width: 809px) {
+  :root {
+    --t-mega: 707px;
+    --t-section: 40px;
+    --t-statement: 36px;
+    --t-claim: 48px;
+    --t-list: 24px;
+    --t-subtitle: 20px;
+    --t-h3: 16px;
+    --t-tag: 14px;
+    --t-marquee: 17px;
+    --strip-h: 42px;
+    --w-list: 600;
+    --pad: 16px;
+    --nav-top: 20px;
+    --sticky-title-top: 96px;
+    --row-gap: 56px;
+  }
+}

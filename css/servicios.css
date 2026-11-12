@@ -1,0 +1,139 @@
+/* =========================================================================
+   ACC 6 BOLD — Servicios (servicios.html)
+   Se apoya en tokens.css + style.css (nav, menú, .page-head, .section-title,
+   .card, .circle-btn, franja y footer) y en caso.css (.msi, píldora de índice
+   .case-block__index, cita .case-quote, reveal). Aquí solo va lo propio:
+   el índice de servicios y los bloques de servicio.
+   Contenido: servicios aprobados.
+
+   Escala usada (toda del sistema, nada nuevo):
+   · «SERVICIOS»            --t-section   108 / 72 / 40 · 700 · MAYÚSCULAS
+   · Índice                 --t-list       52 / 42 / 24 · --w-list (Sectores)
+   · Nombre del servicio    --t-statement  64 / 64 / 36 · 500 (titulares 64 de Nosotros)
+   · Especialidades         --t-case-body  24 / 22 / 18 · 500 · lh 1.4 (cuerpo de bloque)
+   · Enlace «Ver proyectos» 20 / 18 / 16 · 500 + arrow_forward (barra de Proyectos, índice de Nosotros)
+   ========================================================================= */
+
+:root { --t-svc-link: 20px; }
+@media (max-width: 1199px) { :root { --t-svc-link: 18px; } }
+@media (max-width: 809px)  { :root { --t-svc-link: 16px; } }
+
+.svc-page { padding: 0 var(--pad); }
+
+/* =========================================================================
+   1. INTRO — titular sticky en su posición (.page-head) hasta que el índice,
+      120 px más abajo, lo arrastra (como la barra de filtros en Proyectos)
+   ========================================================================= */
+.svc-hero { padding: 200px 0 calc(var(--case-gap) / 2); text-align: center; }
+.svc-head { --page-head-gap: 120px; }
+
+/* Índice: la lista de Sectores de la home (52 / 500 · lh 1.2, centrada, sin
+   números ni líneas). Hover / foco: el resto al 50% (--c-muted) */
+.svc-index__list { position: relative; z-index: 1; margin: 0; padding: 0; list-style: none; }
+.svc-index__link {
+  display: inline-block; text-decoration: none;
+  font-size: var(--t-list); font-weight: var(--w-list); line-height: 1.2;
+  color: var(--c-black); transition: color var(--dur-fast) linear;
+}
+/* Solo CSS (el gesto del menú): sin tinte ni imagen */
+.svc-index__list:has(.svc-index__link:hover) .svc-index__link:not(:hover),
+.svc-index__list:has(.svc-index__link:focus-visible) .svc-index__link:not(:focus-visible) { color: var(--c-muted); }
+.svc-index__link:focus-visible { outline-offset: 6px; }
+
+
+@media (max-width: 1199px) { .svc-head { --page-head-gap: 120px; } }
+@media (max-width: 809px) {
+  .svc-hero { padding-top: 120px; }
+  .svc-head { --page-head-gap: 56px; }
+}
+
+/* =========================================================================
+   2. SERVICIOS — bloques contiguos (padding, no margen): entre el contenido de
+      uno y otro quedan los 200 px del sistema (--case-gap) y el tinte (un solo
+      color, data-svc-tint) se mantiene de Branding a Mkt. Digital sin cortes
+   ========================================================================= */
+.svc {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px;
+  align-items: start;
+  padding: calc(var(--case-gap) / 2) 0;
+  /* El ancla deja el contenido a 140 px del borde, bajo la nav */
+  scroll-margin-top: calc(140px - var(--case-gap) / 2);
+}
+
+/* Texto y vídeo agrupados en el eje central: el texto en las columnas 3–6 termina
+   en el centro de la página y el vídeo (7–10) arranca en él (el eje del claim de la
+   home y del cuerpo de los bloques). Dos columnas libres a cada lado */
+.svc__text { grid-column: 3 / 7; }
+/* Píldora y nombre en la misma línea. La píldora cuelga a la izquierda de la
+   columna (índice colgado): el nombre queda alineado con la lista y cabe en las
+   4 columnas («Comunicación» incluida) */
+.svc__head { display: flex; align-items: center; gap: 24px; margin-left: calc(-46px - 24px); }
+.svc__head .case-block__index { flex: none; }
+.svc__name {
+  font-size: var(--t-statement); font-weight: 500; line-height: 1.1; letter-spacing: -0.015em;
+}
+/* Especialidades: 0.5em entre una y otra (las líneas de una misma especialidad
+   mantienen lh 1.4), así se lee dónde empieza cada una */
+.svc__list { display: flex; flex-direction: column; gap: 0.5em; margin: 56px 0 0; padding: 0; list-style: none; font-size: var(--t-case-body); }
+.svc__list li {
+  max-width: 26em;
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+/* Cada especialidad es un enlace: en hover / foco, el resto de la lista pasa a
+   gris (--c-muted, el gesto de Sectores y del índice de arriba) */
+.svc__item { color: var(--c-black); text-decoration: none; transition: color var(--dur-fast) linear; }
+.svc__list:has(.svc__item:hover) .svc__item:not(:hover),
+.svc__list:has(.svc__item:focus-visible) .svc__item:not(:focus-visible) { color: var(--c-muted); }
+
+/* Enlace a Proyectos filtrado: tipografía del índice de Nosotros (20 / 500) con
+   flecha. En hover se subraya solo el texto (la flecha no) y la flecha avanza,
+   como «← Proyectos» en la ficha */
+.svc__more {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 56px;
+  font-size: var(--t-svc-link); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em;
+  color: var(--c-black); text-decoration: none;
+}
+.svc__more-label {
+  text-decoration: underline; text-decoration-color: transparent;
+  text-decoration-thickness: 1.5px; text-underline-offset: 5px;
+  transition: text-decoration-color var(--dur-fast) linear;
+}
+.svc__more .msi { vertical-align: 0; text-decoration: none; transition: transform var(--dur) var(--ease-out); }
+.svc__more:hover .svc__more-label, .svc__more:focus-visible .svc__more-label { text-decoration-color: currentColor; }
+.svc__more:hover .msi, .svc__more:focus-visible .msi { transform: translateX(6px); }
+
+/* Medio: el marco de la ficha (.case-media__frame) en las columnas 7–10, en 4:5
+   (la proporción de la imagen del Listado y de la foto de Valores). Todos los
+   vídeos al mismo formato aunque su original varíe. Parallax suave (data-par) */
+.svc__media { grid-column: 7 / 11; margin: 0; translate: 0 var(--py, 0px); }
+.svc__media .case-media__frame { --ar: 4 / 5; background: rgba(0, 0, 0, 0.06); } /* fondo de carga al 6% sobre el tinte (criterio de Noticias) */
+
+@media (max-width: 1199px) {
+  /* Tablet: el mismo eje central, con una columna libre a cada lado */
+  .svc__text { grid-column: 2 / 7; }
+  .svc__media { grid-column: 7 / 12; }
+  .svc__list, .svc__more { margin-top: 40px; }
+}
+@media (max-width: 809px) {
+  .svc { grid-template-columns: 1fr; row-gap: 40px; }
+  .svc__text, .svc__media { grid-column: 1; }
+  .svc__media { translate: none; }
+  .svc__head { gap: 12px; margin-left: 0; }   /* sin margen donde colgarla */
+  .svc__list, .svc__more { margin-top: 24px; }
+  .case-block__index { min-width: 40px; height: 40px; }
+}
+
+/* =========================================================================
+   3. CIERRE + CTA — la cita de la ficha y el círculo coral de Nosotros
+   ========================================================================= */
+/* El último servicio aporta la otra mitad: 200 px entre su contenido y la cita */
+.svc-quote { padding-top: calc(var(--case-gap) / 2); }
+.svc-cta { padding: 0 var(--pad) 160px; }
+.svc-cta .circle-btn { margin-top: 0; }
+@media (max-width: 809px) { .svc-cta { padding-bottom: 96px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc__media { translate: none; }
+}

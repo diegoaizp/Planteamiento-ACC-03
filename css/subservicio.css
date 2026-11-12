@@ -1,0 +1,103 @@
+/* =========================================================================
+   ACC 6 BOLD — Especialidad de servicio (último nivel: servicio-*.html)
+   Ejemplo: servicio-estrategia-de-marca.html (Branding → Estrategia de marca).
+
+   Todo sale de componentes que ya existen; aquí solo va su colocación:
+   · Intro      .page-head + .section-title (Servicios, Proyectos, Nosotros)
+                + píldora .case-block__index del servicio padre (Servicios)
+                + .statement__text con .hl (intro de Nosotros)
+   · Fases      la ocupación de los bloques de Servicios (.svc__head: píldora
+                colgada + nombre; eje central, col. 3–6 + 7–10) + tinte
+                data-svc-tint (servicios.js)
+   · Cierre     .case-quote + .svc-quote + .svc-cta (cierre de Servicios)
+   · Siguiente  .case-next (ficha de caso)
+   · Proyectos  .work.case-related + .circle-btn (ficha)
+
+   Escala (toda del sistema, nada nuevo):
+   · Servicio padre   píldora 46 px + eyebrow --t-h3 24 / 20 / 16 · 500 (cabecera de bloque)
+   · «ESTRATEGIA…»    --t-section    108 / 72 / 40 · 700 · MAYÚSCULAS
+   · Frase            --t-statement   64 / 64 / 36 · 600
+   · Título de fase   --t-case-title  52 / 42 / 28 · 500 · lh 1.15 (título de bloque)
+   · Texto de fase    --t-case-body   24 / 22 / 18 · 500 · lh 1.4 (cuerpo de bloque)
+   ========================================================================= */
+
+.sub-page { padding: 0 var(--pad); }
+
+/* =========================================================================
+   1. INTRO — servicio padre + titular, centrados y sticky juntos en el
+      .page-head: quietos en su posición (128 px; 96 en móvil) hasta que la
+      frase, 160 px más abajo, los alcanza y los arrastra
+   ========================================================================= */
+.sub-hero { padding: 128px 0 calc(var(--case-gap) / 2); text-align: center; }
+
+.sub-head { --page-head-top: 128px; --page-head-gap: 160px; }
+.sub-head__stick { position: sticky; top: var(--page-head-top); z-index: 3; pointer-events: none; }
+/* El nombre de una especialidad puede ocupar dos líneas; se equilibran */
+.sub-head .section-title { text-wrap: balance; }
+
+/* Servicio padre: la cabecera de bloque (píldora + eyebrow 24/500), que en
+   Servicios es el arranque de cada servicio. Enlace de vuelta: en hover se
+   subraya el nombre (el gesto de «Ver proyectos de …») */
+.sub-parent {
+  display: inline-flex; align-items: center; gap: 16px;
+  margin-bottom: 26px; pointer-events: auto;
+  color: var(--c-black); text-decoration: none;
+}
+.sub-parent__label {
+  font-size: var(--t-h3); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em;
+  text-decoration: underline; text-decoration-color: transparent;
+  text-decoration-thickness: 1.5px; text-underline-offset: 5px;
+  transition: text-decoration-color var(--dur-fast) linear;
+}
+.sub-parent:hover .sub-parent__label,
+.sub-parent:focus-visible .sub-parent__label { text-decoration-color: currentColor; }
+
+.sub-hero__statement { margin: 0 auto; }
+/* La palabra subrayada (con su pase de fotos) no se parte entre líneas */
+.sub-hero__statement .hl { white-space: nowrap; }
+
+@media (max-width: 1199px) { .sub-head { --page-head-gap: 120px; } }
+@media (max-width: 809px) {
+  .sub-hero { padding-top: 96px; }
+  .sub-head { --page-head-top: 96px; --page-head-gap: 80px; }
+  .sub-parent { gap: 12px; margin-bottom: 16px; }
+  .sub-parent .case-block__index { min-width: 40px; height: 40px; }
+}
+
+/* =========================================================================
+   2. FASES — la ocupación de los bloques de Servicios: contiguos (padding,
+      no margen: 200 px entre contenidos y el tinte peach sin cortes) y
+      agrupados en el eje central, con 2 columnas libres a cada lado (1 en
+      tablet). Píldora colgada + título en las col. 3–6; texto en las 7–10,
+      donde Servicios pone el vídeo
+   ========================================================================= */
+.sub-step {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px;
+  align-items: start;
+  padding: calc(var(--case-gap) / 2) 0;
+}
+/* .svc__head (servicios.css): píldora colgada, centrada en vertical con el título */
+.sub-step__head { grid-column: 3 / 7; }
+/* Todo el ancho de las columnas 3–6; text-wrap: balance reparte las líneas.
+   Medida máxima 10em: el título ocupa siempre 2 líneas o más (en pantallas muy
+   anchas y en móvil, a una columna, no llega a una sola línea). En desktop la
+   columna ya es más estrecha y no cambia nada */
+.sub-step__title {
+  max-width: 10em;
+  font-size: var(--t-case-title); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.sub-step__text {
+  grid-column: 7 / 11;
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1199px) {
+  .sub-step__head { grid-column: 2 / 7; }
+  .sub-step__text { grid-column: 7 / 12; }
+}
+@media (max-width: 809px) {
+  .sub-step { grid-template-columns: 1fr; row-gap: 24px; }
+  .sub-step__head, .sub-step__text { grid-column: 1; }
+}

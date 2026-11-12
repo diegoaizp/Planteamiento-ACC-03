@@ -1,0 +1,204 @@
+/* =========================================================================
+   ACC 6 BOLD — Noticias (noticias.html) y noticia (noticia.html)
+   Todo sale de componentes que ya existen; aquí solo va su colocación:
+   · Sección      .news de la home (fondo #dae8e4, imagen rgba(0,0,0,.06),
+                  etiqueta al 60%, CTA circular #b9d7cf)
+   · Titular      .page-head + .section-title (Proyectos): quieto hasta que la
+                  destacada lo arrastra
+   · Destacada    .card (zoom) con la composición de la ficha: imagen en las
+                  col. 1–6 y texto desde la 7, alineado abajo (Grupo ACC)
+   · Dos filas    .card de noticia (título 24/500 + etiqueta 16/400), 3 por fila
+   · Listado      la lista de Ofertas activas (Talento): título 42/500, etiqueta
+                  24/500, líneas al 30% y, en lugar de la flecha, la imagen
+                  pequeña; hover: el resto al 50%
+   · Cargar más   .circle-btn
+   · Noticia      cabecera de la ficha (.case-hero) sin marca, foto sticky de
+                  Valores + cuerpo de bloque desde la col. 7, cita con tinte
+                  (.case-quote), Siguiente (.case-next) y .news de la home
+
+   Escala (toda del sistema, nada nuevo):
+   · «NOTICIAS»               --t-section     108 / 72 / 40 · 700 · MAYÚSCULAS
+   · Titular de la destacada  --t-case-title   52 / 42 / 28 · 500 · lh 1.15
+   · Titular del listado      --t-value        42 / 42 / 24 · 500 · lh 1.15
+   · Entradilla               --t-value        42 / 42 / 24 · 500 · lh 1.15
+   · Titular de la noticia    --t-case-head    64 / 48 / 32 · 500 · lh 1.1
+   · Texto y etiquetas        --t-case-body    24 / 22 / 18 · 500 · lh 1.4
+   · Tarjeta                  --t-h3 + --t-tag 24 / 20 / 16 · 500 + 16 / 14 · 400
+   ========================================================================= */
+
+/* --t-value vive en nosotros.css; se repite aquí para no cargar esa hoja */
+:root { --t-value: 42px; }
+@media (max-width: 809px) { :root { --t-value: 24px; } }
+
+/* =========================================================================
+   NOTICIAS · 1. SECCIÓN Y TITULAR
+   ========================================================================= */
+.news-page { padding-bottom: var(--case-gap); }
+/* Como «PROYECTOS»: arriba a 200 (120 en móvil) y 120 px hasta la destacada */
+.news-page__head { --page-head-gap: 120px; }
+@media (max-width: 809px) { .news-page__head { --page-head-gap: 56px; } }
+
+/* =========================================================================
+   NOTICIAS · 2. DESTACADA — imagen (col. 1–6, 1:1) y texto desde la col. 7,
+   alineado abajo. Etiqueta, titular de bloque, entradilla al cuerpo y el
+   enlace con flecha de Servicios («Ver proyectos de …»)
+   ========================================================================= */
+.news-feature {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px;
+  align-items: end;
+}
+.news-feature .card__media { grid-column: 1 / 7; --ratio: 1 / 1; }
+.news-feature__body { grid-column: 7 / -1; display: flex; flex-direction: column; align-items: flex-start; }
+.news-feature__tag {
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.6);
+}
+.news-feature__title {
+  margin-top: 24px;
+  font-size: var(--t-case-title); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.news-feature__lead {
+  margin-top: 40px; max-width: 34em;
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+/* «Leer noticia»: .svc__more de Servicios (20 / 18 / 16) dentro del enlace de la tarjeta */
+.news-feature .svc__more { margin-top: 56px; }
+.news-feature:hover .svc__more-label, .news-feature:focus-visible .svc__more-label { text-decoration-color: currentColor; }
+.news-feature:hover .svc__more .msi, .news-feature:focus-visible .svc__more .msi { transform: translateX(6px); }
+
+@media (max-width: 809px) {
+  .news-feature { grid-template-columns: 1fr; row-gap: 24px; }
+  .news-feature .card__media, .news-feature__body { grid-column: 1; }
+  .news-feature__title { margin-top: 12px; }
+  .news-feature__lead { margin-top: 20px; }
+  .news-feature .svc__more { margin-top: 32px; }
+}
+
+/* =========================================================================
+   NOTICIAS · 3. DOS FILAS — tarjetas de noticia, 3 por fila (2 en tablet,
+   1 en móvil). La separación entre filas es la del grid de casos
+   ========================================================================= */
+.news-page__grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 40px; row-gap: var(--row-gap);
+  margin-top: var(--row-gap);
+}
+@media (max-width: 1199px) { .news-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 80px; } }
+@media (max-width: 809px)  { .news-page__grid { grid-template-columns: 1fr; row-gap: 56px; margin-top: 80px; } }
+
+/* =========================================================================
+   NOTICIAS · 4. LISTADO — la lista de Ofertas activas, a todo el ancho de la
+   retícula: titular (col. 1–6) · etiqueta (col. 7–9) · imagen (col. 11–12)
+   ========================================================================= */
+.news-list { margin-top: var(--case-gap); padding: 0; list-style: none; }
+.news-list li { border-top: 1px solid rgba(0, 0, 0, 0.3); }
+.news-list li:last-of-type { border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+/* Las filas que aún no se han cargado no cuentan como última */
+.news-list li[hidden] { display: none; }
+.news-list li:has(+ li[hidden]) { border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+
+.news-row {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px; align-items: center;
+  padding: 40px 0; color: var(--c-black); text-decoration: none;
+  transition: opacity var(--dur-fast) linear;
+}
+.news-row__title {
+  grid-column: 1 / 7;
+  font-size: var(--t-value); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;
+  text-decoration: underline; text-decoration-color: transparent;
+  text-decoration-thickness: 0.06em; text-underline-offset: 0.14em;
+  transition: text-decoration-color var(--dur-fast) linear;
+}
+.news-row__tag {
+  grid-column: 7 / 10;
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.6);
+}
+/* Imagen pequeña: el gris de carga de la tarjeta de noticia y su zoom */
+.news-row__media { grid-column: 11 / -1; aspect-ratio: 4 / 3; overflow: hidden; background: rgba(0, 0, 0, 0.06); }
+.news-row__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-out); }
+
+.news-row:hover .news-row__title, .news-row:focus-visible .news-row__title { text-decoration-color: currentColor; }
+.news-row:hover .news-row__media img, .news-row:focus-visible .news-row__media img { transform: scale(1.05); }
+.news-list:has(.news-row:hover) .news-row:not(:hover),
+.news-list:has(.news-row:focus-visible) .news-row:not(:focus-visible) { opacity: 0.5; }
+
+@media (max-width: 1199px) {
+  .news-row__title { grid-column: 1 / 8; }
+  .news-row__tag { grid-column: 8 / 11; }
+}
+@media (max-width: 809px) {
+  .news-row { grid-template-columns: minmax(0, 1fr) 96px; column-gap: 16px; row-gap: 10px; padding: 32px 0; align-items: start; }
+  .news-row__title { grid-column: 1; grid-row: 1; }
+  .news-row__tag { grid-column: 1; grid-row: 2; }
+  .news-row__media { grid-column: 2; grid-row: 1 / 3; }
+}
+
+/* =========================================================================
+   NOTICIAS · 5. CARGAR MÁS — el CTA circular (#b9d7cf en Noticias). Las
+   filas nuevas entran con el reveal del sistema, escalonadas
+   ========================================================================= */
+.news-more[hidden] { display: none; }
+.news-more { cursor: pointer; }
+@media (max-width: 809px) { .news-page .circle-btn { margin-top: 80px; } }
+
+/* =========================================================================
+   NOTICIA · 1. CABECERA — la de la ficha de caso sin la marca: «← Noticias»,
+   titular (col. 1–6, 64/500) y ficha desde la col. 7 (Categoría ·
+   Publicada: fecha y lectura, dos valores como «Servicios» en la ficha)
+   ========================================================================= */
+.news-post .case-hero__row { margin-top: 40px; }
+@media (max-width: 809px) { .news-post .case-hero__row { margin-top: 24px; } }
+
+/* =========================================================================
+   NOTICIA · 2. CUERPO — foto sticky (col. 1–6, como la de Valores) y texto
+   desde la col. 7 (el cuerpo de los bloques de la ficha)
+   ========================================================================= */
+.news-post__body {
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px;
+  align-items: start;
+  margin-top: var(--case-gap-s);
+}
+.news-post__media { grid-column: 1 / 7; margin: 0; position: sticky; top: 128px; }
+.news-post__text { grid-column: 7 / -1; }
+/* Entradilla al tamaño de Valores y de la lista (--t-value) */
+.news-post__lead {
+  font-size: var(--t-value); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+.news-post__text > p:not(.news-post__lead), .news-post__text .job-list li {
+  max-width: 34em;
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.4; letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+.news-post__text > p + p, .news-post__text > p + .job-list, .news-post__text > .job-list + p { margin-top: 1em; }
+.news-post__text > .news-post__lead + * { margin-top: 56px; }
+/* Secciones dentro de la noticia: al tamaño de la entradilla */
+.news-post__text h2 {
+  margin-top: var(--case-gap-s); margin-bottom: 40px;
+  font-size: var(--t-value); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance;
+}
+.news-post__text > .news-post__lead + h2 { margin-top: var(--case-gap-s); }
+
+@media (max-width: 1199px) { .news-post__media { top: 112px; } }
+@media (max-width: 809px) {
+  .news-post__body { grid-template-columns: 1fr; row-gap: 40px; }
+  .news-post__media, .news-post__text { grid-column: 1; }
+  .news-post__media { position: static; }
+  .news-post__text > .news-post__lead + * { margin-top: 32px; }
+  .news-post__text h2 { margin-bottom: 24px; }
+}
+
+/* =========================================================================
+   NOTICIA · 3. CITA, SIGUIENTE Y MÁS NOTICIAS
+   ========================================================================= */
+/* La cita cierra el artículo: sin el padding inferior de .case */
+.news-post { padding-bottom: 0; }
+.news-post__end { height: var(--case-gap); }
+.news-post .case-quote + .news-post__end { display: none; }
+.case-next__client { text-wrap: balance; }
+/* Más noticias: la sección de la home, con el hueco titular → tarjetas de «Más proyectos» */
+.news-related .related-head { --page-head-gap: 160px; }
+@media (max-width: 809px) { .news-related .related-head { --page-head-gap: 80px; } }

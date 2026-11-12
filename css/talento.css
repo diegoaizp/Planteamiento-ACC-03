@@ -1,0 +1,117 @@
+/* =========================================================================
+   ACC 6 BOLD — Talento (talento.html) y ofertas (oferta-*.html)
+   Todo sale de componentes que ya existen (caso.css: bloques, vídeo, siguiente;
+   subservicio.css: cabecera centrada de las ofertas; style.css: .page-head,
+   .circle-btn, franja y footer). Aquí solo va la colocación propia:
+   · Intro        .page-head + .section-title + .statement__text con .hl (Nosotros)
+   · Cifras       tipografía de statement (64) + etiqueta de cuerpo de bloque
+   · Ofertas      lista tipográfica (la del listado de Proyectos): título 42/500,
+                  ficha en #666, flecha; hover: el resto al 50%
+   · Oferta       ficha (.case-facts) + bloques narrativos de la ficha de caso
+   ========================================================================= */
+
+.tal { padding: 0 var(--pad); }
+.tal-hero { padding-top: 200px; text-align: center; }
+.tal-head { --page-head-gap: 160px; }
+.tal-hero__statement { margin: 0 auto; }
+@media (max-width: 1199px) { .tal-head { --page-head-gap: 120px; } }
+@media (max-width: 809px)  { .tal-hero { padding-top: 120px; } .tal-head { --page-head-gap: 80px; } }
+
+.tal-anchor { scroll-margin-top: 120px; }
+
+/* ---- Cifras: Grupo ACC en resumidas cuentas ----------------------------- */
+.tal-stats {
+  grid-column: 1 / -1; width: min(80%, 1120px); margin: var(--case-gap-s) auto 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 80px 40px;
+}
+.tal-stat { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.tal-stat dd { margin: 0; }
+.tal-stat__num { font-size: var(--t-section); font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
+.tal-stat__label {
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em;
+  color: var(--c-meta); order: 2;
+}
+
+/* ---- Ofertas activas: lista tipográfica ---------------------------------- */
+.tal-jobs { grid-column: 1 / -1; margin: var(--case-gap-s) 0 0; padding: 0; list-style: none; }
+.tal-jobs li { border-top: 1px solid rgba(0, 0, 0, 0.3); }
+.tal-jobs li:last-child { border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+.tal-job {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) auto; column-gap: 40px; align-items: center;
+  padding: 56px 0; color: var(--c-black); text-decoration: none; text-align: left;
+  transition: opacity var(--dur-fast) linear;
+}
+.tal-job__title { font-size: var(--t-value); font-weight: 500; line-height: 1.15; letter-spacing: -0.015em; text-wrap: balance; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 0.06em; text-underline-offset: 0.14em; transition: text-decoration-color var(--dur-fast) linear; }
+.tal-job__meta {
+  display: flex; flex-direction: column; gap: 2px; margin: 0;
+  font-size: var(--t-case-body); font-weight: 500; line-height: 1.3; letter-spacing: -0.01em; color: var(--c-meta);
+}
+.tal-job__arrow { font-size: 40px; transition: transform var(--dur) var(--ease-out); }
+.tal-job:hover .tal-job__arrow, .tal-job:focus-visible .tal-job__arrow { transform: translateX(8px); }
+.tal-job:hover .tal-job__title, .tal-job:focus-visible .tal-job__title { text-decoration-color: currentColor; }
+.tal-jobs:has(.tal-job:hover) .tal-job:not(:hover),
+.tal-jobs:has(.tal-job:focus-visible) .tal-job:not(:focus-visible) { opacity: 0.5; }
+@media (max-width: 809px) {
+  .tal-job { grid-template-columns: 1fr auto; row-gap: 10px; padding: 32px 0; }
+  .tal-job__title { grid-column: 1; }
+  .tal-job__meta { grid-column: 1; grid-row: 2; }
+  .tal-job__arrow { grid-column: 2; grid-row: 1; font-size: 28px; }
+}
+
+/* ---- Otras posiciones ----------------------------------------------------- */
+.tal-profiles { display: flex; flex-direction: column; gap: 0.5em; margin: 1em 0 0; padding: 0; list-style: none; font-size: var(--t-case-body); font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; }
+
+/* ---- CTA circular --------------------------------------------------------- */
+.tal-cta { padding: var(--case-gap-s) var(--pad) 160px; }
+.tal-cta .circle-btn { margin-top: 0; }
+@media (max-width: 809px) { .tal-cta { padding-bottom: 96px; } }
+
+/* =========================================================================
+   OFERTA — cabecera centrada (subservicio.css) + ficha + bloques
+   ========================================================================= */
+.job-hero .sub-parent .msi { font-size: 24px; vertical-align: 0; transition: transform var(--dur) var(--ease-out); }
+.job-hero .sub-parent:hover .msi { transform: translateX(-4px); }
+.job-facts { justify-content: center; margin: 72px auto 0; text-align: left; }
+.job-body { padding-bottom: 0; }
+.job-body .case-block:first-child { margin-top: var(--case-gap-s); }
+
+/* Listas de la oferta: las especialidades de Servicios (24/500, 0.5em entre ítems) */
+.job-list { display: flex; flex-direction: column; gap: 0.6em; margin: 0; padding: 0; list-style: none; }
+.job-list li { font-size: var(--t-case-body); font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; text-wrap: pretty; }
+
+.job-end { height: 160px; }
+@media (max-width: 809px) { .job-end { height: 96px; } .job-facts { margin-top: 48px; } }
+
+
+/* Criterio de Nosotros: cifras y ofertas al ancho de las columnas de Grupo ACC
+   (80 %, tope 1120; 100 % en tablet y móvil) */
+.tal-jobs { grid-column: 1 / -1; width: min(80%, 1120px); margin: var(--case-gap-s) auto 0; }
+.tal-job { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+.tal-profiles { align-items: flex-start; margin-top: 1.4em; }
+@media (max-width: 1199px) {
+  .tal-stats, .tal-jobs { width: 100%; }
+}
+
+/* Ajuste de texto: la entradilla se reparte equilibrada y el resto evita líneas huérfanas */
+.tal .about-cols__lead { text-wrap: balance; }
+.tal .about-cols p { text-wrap: pretty; }
+
+/* Otras posiciones: .sub-step (subservicio.css) sin el padding de bloque contiguo; título a 52 como las fases */
+.tal-split { grid-column: 1 / -1; margin-top: var(--case-gap-s); padding: 0; }
+.tal-split .sub-step__title { max-width: none; grid-column: 3 / 7; }
+.tal-split__lead { margin: 0; }
+.tal-split .tal-profiles { margin-top: 1.4em; }
+@media (max-width: 1199px) { .tal-split .sub-step__title { grid-column: 2 / 7; } }
+@media (max-width: 809px) { .tal-split .sub-step__title { grid-column: 1; } }
+
+/* Banda baja con una foto (placeholder del vídeo): recorte apaisado de una foto vertical */
+.tal-banner .case-media__frame img { object-position: 50% 58%; }
+@media (max-width: 809px) { .tal-banner .case-media__frame { --ar: 16 / 7 !important; } }
+
+/* La banda es más ancha que el texto (80 %, tope 1120) pero sin llegar a los márgenes (78 %) */
+.tal-banner { width: 78%; margin-left: auto; margin-right: auto; }
+@media (max-width: 1199px) { .tal-banner { width: 100%; } }
+
+/* Descriptivo sobre el placeholder del vídeo: «Buscamos…» */
+.tal-banner .case-media__frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 65%); pointer-events: none; }
+.tal-banner__caption { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; padding: clamp(16px, 3vw, 40px); max-width: 28ch; color: #fff; font-size: clamp(18px, 2.2vw, 32px); line-height: 1.2; font-weight: 500; }

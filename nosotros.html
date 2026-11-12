@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nosotros — ACC</title>
+  <meta name="description"
+    content="ACC es una agencia de comunicación, estrategia de marca y marketing digital que combina estrategia, creatividad y tecnología. Parte de Grupo ACC. Desde 1990." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap"
+    rel="stylesheet" />
+  <!-- Iconos: Material Symbols (fonts.google.com/icons), solo los que usa la página (orden alfabético) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward,arrow_outward,close,menu&display=block"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/menu.css" />
+  <link rel="stylesheet" href="./css/caso.css" />
+  <link rel="stylesheet" href="./css/nosotros.css" />
+</head>
+
+<!-- Componentes de la ficha de caso (caso.css / caso.js) + los propios de esta página
+     (nosotros.css / nosotros.js). --case-c: color de la página para el tinte de la cita -->
+
+<body class="page-about" style="--case-c: var(--c-acc-pink); --case-c-deep: var(--c-acc-coral);">
+  <header class="nav" data-nav data-theme="light" data-zone="page">
+    <a href="./index.html" class="nav__logo" aria-label="ACC — Volver al inicio">
+      <svg viewBox="0 0 114 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path id="acc-logo-path" fill="currentColor"
+          d="M81.2002 19C81.2002 7.58944 88.3312 0 98.472 0C106.924 0 112.945 5.20178 114 12.9485H109.459C109.039 10.3479 107.693 7.98883 105.673 6.30999C103.652 4.63115 101.093 3.74672 98.472 3.82111C91.2916 3.82111 85.6891 9.65939 85.6891 19C85.6891 28.3406 91.2916 34.1789 98.472 34.1789C101.093 34.2532 103.652 33.3687 105.673 31.6896C107.694 30.0106 109.039 27.6513 109.459 25.0504H114C112.945 32.7982 106.924 38 98.472 38C88.3312 38 81.2002 30.4084 81.2002 19ZM41.0602 19C41.0602 7.58944 48.1913 0 58.3321 0C66.7837 0 72.8022 5.20178 73.8601 12.9485H69.3175C68.8993 10.3474 67.5545 7.98757 65.5336 6.30847C63.5127 4.62938 60.9533 3.7454 58.3321 3.82111C51.1485 3.82111 45.5492 9.65939 45.5492 19C45.5492 28.3406 51.1485 34.1789 58.3321 34.1789C60.9531 34.253 63.5117 33.3683 65.5323 31.6893C67.5529 30.0102 68.898 27.6511 69.3175 25.0504H73.8601C72.8022 32.7982 66.7837 38 58.3321 38C48.1913 38 41.0602 30.4084 41.0602 19ZM33.6172 37.4152L29.4024 26.8016H8.59549L4.38284 37.4152H0L14.8935 0.582667H18.9989L10.0915 23.0322H27.9075L18.9989 0.582667H23.1023L37.999 37.4152H33.6172Z" />
+      </svg>
+    </a>
+    <div class="nav__actions">
+      <nav aria-label="Navegación principal">
+        <ul class="nav__links">
+          <li data-nav-item><a class="shape-btn shape-btn--pill" href="./proyectos.html">Proyectos</a></li>
+          <li data-nav-item><a class="shape-btn shape-btn--pill" href="./contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="shape-btn nav__burger" type="button" data-nav-item data-menu-open aria-controls="menu"
+        aria-expanded="false" aria-label="Abrir menú">
+        <span class="material-symbols-outlined nav__burger-open" aria-hidden="true">menu</span>
+        <span class="material-symbols-outlined nav__burger-close" aria-hidden="true">close</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" data-menu aria-hidden="true" data-lenis-prevent>
+    <div class="menu__top">
+      <a href="./index.html" class="menu__logo" aria-label="ACC — Volver al inicio" data-menu-link>
+        <svg viewBox="0 0 114 38" fill="none" aria-hidden="true">
+          <use href="#acc-logo-path" />
+        </svg>
+      </a>
+    </div>
+
+    <nav class="menu__stack" aria-label="Menú">
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./proyectos.html" data-menu-link><span
+              class="menu__mask"><span>Proyectos</span></span></a></h2>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./nosotros.html" data-menu-link aria-current="page"><span
+              class="menu__mask"><span>Nosotros</span></span></a></h2>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./servicios.html" data-menu-link><span
+              class="menu__mask"><span>Servicios</span></span></a></h2>
+        <div class="menu__body menu__services">
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-branding.html"
+                  data-menu-link>Branding</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-estrategia-de-marca.html" data-menu-link>Estrategia de
+                    marca</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-branding.html#naming-y-arquitectura-de-marca"
+                    data-menu-link>Naming y arquitectura de marca</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-branding.html#sistemas-de-identidad-visual"
+                    data-menu-link>Sistemas de identidad visual</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-branding.html#packaging-y-diseno-de-producto"
+                    data-menu-link>Packaging y diseño de producto</a></span></li>
+              <li><span class="menu__mask"><a
+                    href="./servicio-branding.html#herramientas-y-formacion-brand-manual-brand-center"
+                    data-menu-link>Herramientas y formación (Brand Manual, Brand Center…)</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-comunicacion.html"
+                  data-menu-link>Comunicación</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-comunicacion.html#estrategia-de-comunicacion"
+                    data-menu-link>Estrategia de comunicación</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-comunicacion.html#direccion-creativa-y-campanas"
+                    data-menu-link>Dirección creativa y campañas</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-comunicacion.html#diseno-grafico-y-editorial"
+                    data-menu-link>Diseño gráfico y editorial</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-comunicacion.html#relaciones-publicas-y-pr"
+                    data-menu-link>Relaciones Públicas &amp; PR</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-comunicacion.html#branded-content" data-menu-link>Branded
+                    Content</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-comunicacion.html#employer-branding"
+                    data-menu-link>Employer Branding</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-experience.html"
+                  data-menu-link>Experience</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a
+                    href="./servicio-experience.html#diseno-de-espacios-y-produccion-de-eventos" data-menu-link>Diseño
+                    de espacios y producción de eventos</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-experience.html#diseno-y-produccion-de-stands"
+                    data-menu-link>Diseño y producción de stands</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-experience.html#activaciones-y-experiencias-de-marca"
+                    data-menu-link>Activaciones y experiencias de marca</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-rrss.html"
+                  data-menu-link>RRSS</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-rrss.html#estrategia-social-media"
+                    data-menu-link>Estrategia social media</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-rrss.html#creacion-y-produccion-de-contenidos"
+                    data-menu-link>Creación y producción de contenidos</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-rrss.html#community-management" data-menu-link>Community
+                    Management</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-rrss.html#influencer-marketing" data-menu-link>Influencer
+                    Marketing</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-rrss.html#social-listening-y-analitica"
+                    data-menu-link>Social Listening y analítica</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-ecommerce.html"
+                  data-menu-link>E-commerce</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-ecommerce.html#estrategia-e-commerce"
+                    data-menu-link>Estrategia e-commerce</a></span></li>
+              <li><span class="menu__mask"><a
+                    href="./servicio-ecommerce.html#diseno-y-desarrollo-de-plataformas-de-venta" data-menu-link>Diseño y
+                    desarrollo de plataformas de venta</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-ecommerce.html#cro" data-menu-link>CRO</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-ecommerce.html#integracion-de-plataformas-y-sistemas"
+                    data-menu-link>Integración de plataformas y sistemas</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-ecommerce.html#automatizacion-y-fidelizacion"
+                    data-menu-link>Automatización y fidelización</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-ecommerce.html#analitica-y-crecimiento"
+                    data-menu-link>Analítica y crecimiento</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-media.html"
+                  data-menu-link>Media</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-media.html#estrategia-de-medios"
+                    data-menu-link>Estrategia de medios</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-media.html#planificacion-y-compra-de-medios"
+                    data-menu-link>Planificación y compra de medios</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-media.html#programatica"
+                    data-menu-link>Programática</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-media.html#sem" data-menu-link>SEM</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-media.html#social-ads" data-menu-link>Social
+                    Ads</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-mkt-digital.html"
+                  data-menu-link>Mkt. Digital</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-mkt-digital.html#consultoria-del-ecosistema-digital"
+                    data-menu-link>Consultoría del ecosistema digital</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-mkt-digital.html#diseno-web-y-experiencias-digitales"
+                    data-menu-link>Diseño web y experiencias digitales</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-mkt-digital.html#seo" data-menu-link>SEO</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-mkt-digital.html#geo" data-menu-link>GEO</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-mkt-digital.html#crm-y-automatizacion" data-menu-link>CRM
+                    y automatización</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-mkt-digital.html#data-y-analytics" data-menu-link>Data
+                    &amp; Analytics</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./servicio-produccion-ia.html"
+                  data-menu-link>Producción IA</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-produccion-ia.html#conceptualizacion-creativa-con-ia"
+                    data-menu-link>Conceptualización creativa con IA</a></span></li>
+              <li><span class="menu__mask"><a href="./servicio-produccion-ia.html#produccion-audiovisual-con-ia"
+                    data-menu-link>Producción audiovisual con IA</a></span></li>
+              <li><span class="menu__mask"><a
+                    href="./servicio-produccion-ia.html#generacion-de-activos-digitales-con-ia"
+                    data-menu-link>Generación de activos digitales con IA</a></span></li>
+              <li><span class="menu__mask"><a
+                    href="./servicio-produccion-ia.html#personalizacion-y-localizacion-de-contenidos-con-ia"
+                    data-menu-link>Personalización y localización de contenidos con IA</a></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./noticias.html" data-menu-link><span
+              class="menu__mask"><span>Noticias</span></span></a></h2>
+        <div class="menu__body menu__news">
+          <a class="menu-news" href="./noticia.html?slug=acc-nueva-etapa" data-menu-link>
+            <div class="menu-news__media" data-menu-fade><img src="./assets/news/nueva-etapa.webp" alt="" loading="lazy"
+                decoding="async" /></div>
+            <span class="menu__mask"><span class="menu-news__title">ACC estrena una nueva forma de contar lo que
+                viene</span></span>
+            <span class="menu__mask"><span class="menu-news__tag">Dentro de ACC</span></span>
+          </a>
+          <a class="menu-news" href="./noticia.html?slug=acc-timac-agro-fruit-attraction" data-menu-link>
+            <div class="menu-news__media" data-menu-fade><img src="./assets/news/timac-agro.webp" alt="" loading="lazy"
+                decoding="async" /></div>
+            <span class="menu__mask"><span class="menu-news__title">Diseño y producción del stand de TIMAC AGRO en Fruit
+                Attraction</span></span>
+            <span class="menu__mask"><span class="menu-news__tag">Experience &amp; Eventos</span></span>
+          </a>
+          <a class="menu-news" href="./noticia.html?slug=acc-radar" data-menu-link>
+            <div class="menu-news__media" data-menu-fade><img src="./assets/news/radar.webp" alt="" loading="lazy"
+                decoding="async" /></div>
+            <span class="menu__mask"><span class="menu-news__title">Radar ACC: señales de hoy para imaginar las marcas
+                de mañana</span></span>
+            <span class="menu__mask"><span class="menu-news__tag">Tendencias &amp; Cultura</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./talento.html" data-menu-link><span
+              class="menu__mask"><span>Talento</span></span></a></h2>
+        <div class="menu__body menu__cols menu__cols--2">
+          <div>
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./talento.html" data-menu-link>Trabaja con
+                  nosotros</a></span></h3>
+          </div>
+          <div>
+            <h3 class="menu-svc__name"><span class="menu__mask"><span>Posiciones abiertas</span></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./oferta-estratega-de-marca.html" data-menu-link>Estratega de
+                    marca</a></span></li>
+              <li><span class="menu__mask"><a href="./oferta-especialista-seo-geo.html" data-menu-link>Especialista SEO
+                    y GEO</a></span></li>
+              <li><span class="menu__mask"><a href="./oferta-disenador-grafico.html" data-menu-link>Diseñador/a
+                    gráfico/a</a></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./contacto.html" data-menu-link><span
+              class="menu__mask"><span>Contacto</span></span></a></h2>
+        <div class="menu__body menu__cols menu__cols--2">
+          <div class="menu__big">
+            <span class="menu__mask"><a href="mailto:acc@acc.com.es">acc@acc.com.es</a></span>
+            <span class="menu__mask"><a href="tel:+34943311566">+34 943 311 566</a></span>
+          </div>
+          <div>
+            <p class="menu__text"><span class="menu__mask"><span>Camino de Portuetxe 18, 2C</span></span><span
+                class="menu__mask"><span>20018 Donostia–San Sebastián</span></span></p>
+            <div class="menu__links">
+              <span class="menu__mask"><a href="https://www.instagram.com/agencia.acc/" target="_blank"
+                  rel="noopener">Instagram</a></span>
+              <span class="menu__mask"><a href="https://www.linkedin.com/company/acc-agencia-digital" target="_blank"
+                  rel="noopener">LinkedIn</a></span>
+              <span class="menu__mask"><a href="https://www.youtube.com/user/ACCAgenciaDigital" target="_blank"
+                  rel="noopener">YouTube</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </div>
+
+  <main id="top">
+    <article class="about" aria-labelledby="about-title">
+      <!-- ===================================================================
+           1. INTRO — titular de página (como «PROYECTOS»: sticky en su posición
+              hasta que la frase lo arrastra), frase al cuerpo del manifiesto con «agencia»
+              subrayada (pase de fotos + tinte de página) e índice de anclas con el
+              estilo de la barra de Proyectos
+           =================================================================== -->
+      <header class="about-hero" data-theme="light">
+        <!-- Titular sticky en su posición hasta que la frase lo arrastra (.page-head) -->
+        <div class="page-head about-head">
+          <h1 class="section-title" id="about-title">Nosotros</h1>
+        </div>
+
+        <p class="statement__text about-hero__statement">
+          Somos una
+          <span class="hl" tabindex="0" data-gif data-bg="var(--c-lilac)">agencia<span class="hl__gif"
+              aria-hidden="true">
+              <img src="./assets/nosotros/about-11-domingo_11-still.webp" alt="" class="is-active" />
+              <img src="./assets/nosotros/about-12-domingo_12-still.webp" alt="" />
+              <img src="./assets/nosotros/about-13-domingo_13-still.webp" alt="" />
+              <img src="./assets/nosotros/about-14-domingo_14-still.webp" alt="" />
+              <img src="./assets/nosotros/about-15-domingo_15-still.webp" alt="" />
+            </span></span>
+          de comunicación, estrategia de marca y marketing digital.
+        </p>
+
+        <nav class="about-index" aria-label="En esta página">
+          <a class="about-index__link" href="#grupo-acc">Grupo ACC</a>
+          <a class="about-index__link" href="#valores">Valores</a>
+          <a class="about-index__link" href="#personas">Personas</a>
+          <a class="about-index__link" href="#clientes">Clientes</a>
+        </nav>
+      </header>
+
+      <!-- ===================================================================
+           2. LA AGENCIA — galería a sangre de la ficha de caso (avanza sola, se
+              arrastra, cursor coral «Arrastra»). data-reel-scroll: el scroll
+              acelera la galería y, al subir, invierte su sentido
+           =================================================================== -->
+      <section class="case-reel about-reel" data-theme="light" aria-label="El día a día en ACC">
+        <div class="case-reel__head" data-reveal>
+          <span class="case-reel__hint" aria-hidden="true">Arrastra<span class="msi">arrow_forward</span></span>
+        </div>
+        <div class="case-reel__viewport" data-reel data-reel-scroll tabindex="0" aria-roledescription="carrusel"
+          aria-label="El día a día en ACC; usa las flechas para desplazarte">
+          <div class="case-reel__track" data-reel-track>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-03-domingo_3-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 1" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-04-domingo_4-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 2" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-05-domingo_5-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 3" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-06-domingo_6-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 4" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-10-domingo_10-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 5" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-11-domingo_11-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 6" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-12-domingo_12-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 7" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-13-domingo_13-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 8" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-14-domingo_14-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 9" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-15-domingo_15-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 10" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-17-domingo_17-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 11" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-18-domingo_18-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 12" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-19-domingo_19-still.webp" width="1324"
+                height="1992" alt="El día a día en ACC, foto 13" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-01-domingo_1-animated.webp" width="981"
+                height="1475" alt="El día a día en ACC, foto 14" decoding="async" draggable="false" /></figure>
+            <figure class="case-reel__item"><img src="./assets/nosotros/about-02-domingo_2-animated.webp" width="981"
+                height="1475" alt="El día a día en ACC, foto 15" decoding="async" draggable="false" /></figure>
+          </div>
+          <span class="case-reel__cursor" data-reel-cursor aria-hidden="true"><span>Arrastra</span></span>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           3. DESDE 1990 — statement centrado (la cita de la ficha de caso).
+              Mientras cruza el centro, la página se tiñe con --case-c (rosa ACC)
+              y el tinte se mantiene hasta que Grupo ACC llega al centro
+           =================================================================== -->
+      <section class="case-quote" data-theme="light" data-tint data-tint-until="#grupo-acc" aria-label="Cambiar es nuestra manera de avanzar">
+        <blockquote class="case-quote__text" data-reveal>
+          <p>Cambiar es nuestra manera de <span class="case-quote__hl hl" tabindex="0" data-gif>avanzar<span
+                class="hl__gif about-advance-preview" aria-hidden="true">
+                <!-- Corredor reflejado sobre el eje vertical -->
+                <video muted loop playsinline preload="none" poster="./assets/nosotros/avanzar-corredor-derecha.jpg">
+                  <source src="./assets/nosotros/avanzar-corredor-derecha.mp4" type="video/mp4" />
+                </video>
+              </span></span>.</p>
+        </blockquote>
+      </section>
+
+      <section class="case-block case-block--cont" data-theme="light" aria-label="Hoy, continuación">
+        <div class="case-block__body">
+          <p class="about-lead" data-reveal>Hoy somos una consultora de comunicación y marketing digital que combina
+            estrategia, creatividad y tecnología para ayudar a las marcas a conectar con las personas y hacer crecer
+            sus negocios. </p>
+          <p class="about-lead" data-reveal>Seguimos evolucionando. Porque las respuestas que funcionan hoy no tienen
+            por qué ser las
+            que funcionen mañana.</p>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           4. GRUPO ACC — bloque narrativo + el módulo de Sectores de la home:
+              empresas a la izquierda (columnas 2–6) y tarjeta cuadrada a la
+              derecha (7–11). En reposo, la tarjeta es Grupo ACC (negro, logo
+              blanco); hover / foco en una empresa: la tarjeta toma el color de
+              la marca con su logo, la página un tono claro de ese color y el
+              resto de empresas pasa al 50%
+           =================================================================== -->
+      <section class="case-block about-anchor" id="grupo-acc" data-theme="light" aria-labelledby="grupo-acc-title">
+        <h2 class="case-block__title about-title-xl" id="grupo-acc-title" data-reveal>Somos ACC.<br>Y somos Grupo ACC.
+        </h2>
+        <div class="case-block__body about-cols">
+          <p class="about-cols__lead" data-reveal>Ser especialistas es importante. Poder sumar otros especialistas
+            cuando se necesitan, también.
+          </p>
+          <div class="about-cols__col">
+            <p data-reveal>ACC forma parte de Grupo ACC, un ecosistema de empresas que conecta conocimiento y
+              capacidades
+              en comunicación, marketing, ecommerce, tecnología, datos, inteligencia artificial, sistemas y
+              ciberseguridad.</p>
+            <p data-reveal>Somos especialistas cuando se necesita profundidad. Y estamos conectados cuando necesitamos
+              llegar más lejos.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pendiente: URL de ACC Experience (y de Grupo ACC, que no se lista hasta tenerla) -->
+      <nav class="about-group" data-group data-theme="light" aria-labelledby="about-group-label">
+        <div class="about-group__side">
+          <p class="about-group__label" id="about-group-label" data-reveal>Empresas de Grupo ACC</p>
+          <ul class="about-group__list" data-reveal>
+            <li><a class="about-group__link" href="./index.html" data-brand="0" data-brand-bg="#FF5850" data-brand-ink="black" data-brand-icon="arrow_forward">ACC</a></li>
+            <li><a class="about-group__link" href="#" target="_blank" rel="noopener" data-brand="1" data-brand-bg="#FF5850" data-brand-ink="black" data-brand-icon="arrow_outward">ACC Experience</a></li>
+            <li><a class="about-group__link" href="https://ecommerce.acc.com.es/es" target="_blank" rel="noopener" data-brand="2" data-brand-bg="#FF5850" data-brand-ink="black" data-brand-icon="arrow_outward">ACC Ecommerce</a></li>
+            <li><a class="about-group__link" href="https://www.lurnova.ai/es" target="_blank" rel="noopener" data-brand="3" data-brand-bg="#9C54E8" data-brand-ink="white" data-brand-icon="arrow_outward">Lurnova</a></li>
+            <li><a class="about-group__link" href="https://www.solidkey.es/" target="_blank" rel="noopener" data-brand="4" data-brand-bg="#4961F1" data-brand-ink="white" data-brand-icon="arrow_outward">SolidKey</a></li>
+          </ul>
+        </div>
+        <!-- Duplica el enlace de la empresa activa para el ratón; fuera del orden de tabulación.
+             Sin empresa activa es la tarjeta de Grupo ACC (sin enlace hasta tener su URL) -->
+        <a class="about-group__card" data-group-card tabindex="-1" aria-hidden="true" data-reveal>
+          <span class="about-group__stage">
+            <span class="about-group__layer is-in" data-brand-layer="rest"><img class="about-group__logo about-group__logo--grupo" src="./assets/brand/group/grupo-acc-blanco.svg" alt="" width="1555" height="200" loading="lazy" /></span>
+            <span class="about-group__layer" data-brand-layer="0"><svg class="about-group__logo about-group__logo--acc" viewBox="0 0 114 38" aria-hidden="true"><use href="#acc-logo-path" /></svg></span>
+            <span class="about-group__layer" data-brand-layer="1"><img class="about-group__logo" src="./assets/brand/group/acc-experience.svg" alt="" width="1058" height="200" loading="lazy" /></span>
+            <span class="about-group__layer" data-brand-layer="2"><img class="about-group__logo" src="./assets/brand/group/acc-ecommerce.svg" alt="" width="1093" height="200" loading="lazy" /></span>
+            <span class="about-group__layer about-group__layer--media" data-brand-layer="3">
+              <img class="about-group__image" src="./assets/group/lurnova-4x5-still.webp" alt="" width="720" height="900" loading="lazy" decoding="async" /><img class="about-group__logo" src="./assets/brand/group/lurnova.svg" alt="" width="974" height="200" loading="lazy" /></span>
+            <span class="about-group__layer about-group__layer--media" data-brand-layer="4">
+              <img class="about-group__image" src="./assets/group/solidkey-4x5-still.webp" alt="" width="1080" height="1350" loading="lazy" decoding="async" /><img class="about-group__logo about-group__logo--solidkey" src="./assets/brand/group/solidkey.svg" alt="" width="1755" height="200" loading="lazy" /></span>
+          </span>
+          <span class="about-group__caption">
+            <span data-group-name>Grupo ACC</span>
+            <span class="msi about-group__arrow" data-group-icon></span>
+          </span>
+        </a>
+      </nav>
+
+      <!-- ===================================================================
+           5. VALORES — lista numerada. El valor que cruza el centro de la
+              pantalla queda en negro y el resto al 50% (el gesto de Sectores);
+              a la derecha, una foto sticky en 4:5 que cambia con él
+           =================================================================== -->
+      <div class="about-valores-bg" data-theme="light">
+        <section class="case-block about-anchor" id="valores" data-theme="light" aria-labelledby="valores-title">
+          <h2 class="case-block__title about-title-xl" id="valores-title" data-reveal>Hay cosas que, sin embargo,
+            preferimos<br class="about-br"> no cambiar: <span class="about-meta">nuestros valores.</span></h2>
+        </section>
+
+        <div class="about-values" data-values data-theme="light">
+          <ol class="about-values__list" aria-label="Valores de ACC">
+            <li class="about-value" data-value data-reveal>
+              <span class="about-value__num">01</span>
+              <div class="about-value__body">
+                <h3 class="about-value__title">Las personas, primero.</h3>
+                <p class="about-value__desc">Creemos en el talento, el respeto y la confianza como base de nuestro
+                  trabajo. La tecnología cambia muchas cosas. Esta no. Aplicamos sentido y sensibilidad en pro de
+                  construir vínculos sólidos y relaciones duraderas.</p>
+              </div>
+            </li>
+            <li class="about-value" data-value data-reveal>
+              <span class="about-value__num">02</span>
+              <div class="about-value__body">
+                <h3 class="about-value__title">Pensamiento crítico, de serie.</h3>
+                <p class="about-value__desc">No damos nada por hecho. Preguntamos, cuestionamos las convenciones y
+                  pensamos con libertad y ambición. Porque, en un entorno que no deja de cambiar, avanzar exige mantener
+                  una mirada crítica y no funcionar en piloto automático.</p>
+              </div>
+            </li>
+            <li class="about-value" data-value data-reveal>
+              <span class="about-value__num">03</span>
+              <div class="about-value__body">
+                <h3 class="about-value__title">La excelencia como actitud, no destino.</h3>
+                <p class="about-value__desc">Mantenemos una voluntad constante de mejora. Aplicamos exigencia y cariño a
+                  todo lo que hacemos, cada día.</p>
+              </div>
+            </li>
+            <li class="about-value" data-value data-reveal>
+              <span class="about-value__num">04</span>
+              <div class="about-value__body">
+                <h3 class="about-value__title">Menos egos, más legos.</h3>
+                <p class="about-value__desc">Somos más de orgullo compartido que de vanidad individual. Entendemos la
+                  diversidad como un elemento que nos enriquece y fortalece.</p>
+              </div>
+            </li>
+            <li class="about-value" data-value data-reveal>
+              <span class="about-value__num">05</span>
+              <div class="about-value__body">
+                <h3 class="about-value__title">Somos serios con lo que de verdad importa.</h3>
+                <p class="about-value__desc">Nuestro trabajo se basa en el análisis, el rigor y la experiencia. Nuestra
+                  cultura empresarial se fundamenta en la honestidad, la integridad y el compromiso.</p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="about-values__media" data-values-media aria-hidden="true">
+            <img class="is-active" src="./assets/nosotros/about-05-domingo_5-still.webp" alt="" loading="lazy"
+              decoding="async" />
+            <img src="./assets/nosotros/about-06-domingo_6-still.webp" alt="" loading="lazy" decoding="async" />
+            <img src="./assets/nosotros/about-17-domingo_17-still.webp" alt="" loading="lazy" decoding="async" />
+            <img src="./assets/nosotros/about-13-domingo_13-still.webp" alt="" loading="lazy" decoding="async" />
+            <img src="./assets/nosotros/about-14-domingo_14-still.webp" alt="" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================================
+           6. PERSONAS — tarjetas del sistema: foto 3:4, nombre en negro y
+              cargo en #666 al mismo cuerpo. Hover: zoom de la foto y su fondo
+              toma un color claro de la paleta (en ciclo)
+           =================================================================== -->
+      <section class="case-block about-anchor" id="personas" data-theme="light" aria-labelledby="personas-title">
+        <h2 class="case-block__title about-title-xl" id="personas-title" data-reveal>Un equipo con pensamientos<br
+            class="about-br"> y habilidades <span class="case-quote__hl hl" tabindex="0" data-gif data-bg="var(--c-lilac)">híbridas<span
+                class="hl__gif about-hybrid-preview" aria-hidden="true"><video muted loop playsinline preload="metadata"
+                  poster="./assets/video/hibridos-rapido-poster.jpg" width="1200" height="800">
+                  <source src="./assets/video/hibridos-rapido-3x2.webm" type="video/webm" />
+                  <source src="./assets/video/hibridos-rapido-3x2.mp4" type="video/mp4" />
+                </video></span></span>.</h2>
+      </section>
+
+      <ul class="about-team" data-theme="light" aria-label="Equipo de ACC">
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/benardo-elorz.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Beñardo Elorz</p>
+          <p class="about-member__role">Director General</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/ania-olarra.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Ania Olarra</p>
+          <p class="about-member__role">Directora General de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/gaizka-menchaca.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Gaizka Menchaca</p>
+          <p class="about-member__role">Director de Marketing Digital</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/alberto-quintanilla.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Alberto Quintanilla</p>
+          <p class="about-member__role">Director TI</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/majo-carreras.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Majo Carreras</p>
+          <p class="about-member__role">Directora de Arte</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/julia-lee.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Julia Lee</p>
+          <p class="about-member__role">Directora de Planificación Estratégica</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/maite-perez.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Maite Pérez</p>
+          <p class="about-member__role">Directora de Administración</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/juan-manuel-ubiria.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Juan Manuel Ubiria</p>
+          <p class="about-member__role">Director de Producción</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/alvaro-gonzalez.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Álvaro González</p>
+          <p class="about-member__role">Director Creativo</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/nora-valenciaga.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Nora Valenciaga</p>
+          <p class="about-member__role">Directora Creativa</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/elena-arsuaga.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Elena Arsuaga</p>
+          <p class="about-member__role">Responsable de redes sociales</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/diego-aizpurua.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Diego Aizpurua</p>
+          <p class="about-member__role">Director de arte digital</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/inigo-aranburu.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Iñigo Aranburu</p>
+          <p class="about-member__role">Diseñador Gráfico</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/fatima-garin.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Fátima Garín</p>
+          <p class="about-member__role">Diseñadora Gráfica</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/josu-avila.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Josu Ávila</p>
+          <p class="about-member__role">Diseñador Gráfico Digital</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/itziar-uriarte.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Itziar Uriarte</p>
+          <p class="about-member__role">Diseñadora Gráfica</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/estibalitz-ortega.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Estibalitz Ortega</p>
+          <p class="about-member__role">Social Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/iker-bergara.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Iker Bergara</p>
+          <p class="about-member__role">Social Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/victoria-fernandez.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Victoria Fernández</p>
+          <p class="about-member__role">Project Manager Digital</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/maria-condado.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">María Condado</p>
+          <p class="about-member__role">Creativa Social Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/irene-sarria.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Irene Sarriá</p>
+          <p class="about-member__role">Creativa Social Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/sara-zamarro.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Sara Zamarro</p>
+          <p class="about-member__role">Diseñadora Gráfica</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/marian-garcia.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Marian García</p>
+          <p class="about-member__role">Administrativa</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/sergio-san-emeterio.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Sergio San Emeterio</p>
+          <p class="about-member__role">Supervisor de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/teresa-beunza.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Teresa Beunza</p>
+          <p class="about-member__role">Supervisora de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/ane-eizaguirre.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Ane Eizaguirre</p>
+          <p class="about-member__role">Supervisora de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/elia-rodrigo.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Elia Rodrigo</p>
+          <p class="about-member__role">Ejecutiva de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/eider-villaverde.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Eider Villaverde</p>
+          <p class="about-member__role">Supervisora de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/laura-hidalgo.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Laura Hidalgo</p>
+          <p class="about-member__role">Ejecutiva de Cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/anabel-delicado.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Anabel Delicado</p>
+          <p class="about-member__role">Supervisora de cuentas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/ignacio-martin.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Ignacio Martín</p>
+          <p class="about-member__role">Ecommerce y Social Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/ane-salagre.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Ane Salagre</p>
+          <p class="about-member__role">Especialista Paid Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/raul-enjuto.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Raúl Enjuto</p>
+          <p class="about-member__role">Especialista Paid Media</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/iker-izar.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Iker Izar</p>
+          <p class="about-member__role">Gestor de proyectos digitales</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/fernando-rodrigo.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Fernando Rodrigo</p>
+          <p class="about-member__role">Sistemas</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/txomin-vila.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Txomin Vila</p>
+          <p class="about-member__role">Analista Programador</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/eduardo-gomez.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Eduardo Gómez</p>
+          <p class="about-member__role">Analista Programador</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/alex-acosta.webp" alt="" width="800" height="1200"
+              loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Alex Acosta</p>
+          <p class="about-member__role">Analista Programador</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/gorka-garcia.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Gorka García</p>
+          <p class="about-member__role">Analista programador</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/ander-burdain.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Ander Burdain</p>
+          <p class="about-member__role">Desarrollador Front-End</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/daniel-lumbreras.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Daniel Lumbreras</p>
+          <p class="about-member__role">Programador Full-Stack</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/mikel-hermoso.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Mikel Hermoso</p>
+          <p class="about-member__role">Programador Full-Stack</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/adrian-roman.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Adrian Román</p>
+          <p class="about-member__role">Programador Full-Stack</p>
+        </li>
+        <li class="about-member">
+          <figure class="about-member__photo"><img src="./assets/team/pedro-nebreda.webp" alt="" width="800"
+              height="1200" loading="lazy" decoding="async" /></figure>
+          <p class="about-member__name">Pedro Nebreda</p>
+          <p class="about-member__role">Técnico IT</p>
+        </li>
+      </ul>
+
+      <!-- ===================================================================
+           7. CLIENTES — bloque narrativo + la franja negra de logos de la home
+           =================================================================== -->
+      <section class="case-quote about-anchor" id="clientes" data-theme="light" aria-label="Clientes">
+        <blockquote class="case-quote__text" data-reveal>
+          <p>Hay una forma bastante sencilla de medir una relación: <span class="case-quote__hl hl" tabindex="0" data-gif data-bg="var(--c-lilac)">cuánto dura<span
+              class="hl__gif about-plant-preview" aria-hidden="true"><video muted loop playsinline preload="auto" data-playback-rate="3" data-restart-on-hover
+                poster="./assets/video/planta-analogica-poster.jpg" width="1080" height="720">
+                <source src="./assets/video/planta-analogica-3x2.webm" type="video/webm" />
+                <source src="./assets/video/planta-analogica-3x2.mp4" type="video/mp4" />
+              </video></span></span>.</p>
+        </blockquote>
+      </section>
+
+      <section class="case-block case-block--cont" data-theme="light" aria-label="Clientes, continuación">
+        <div class="case-block__body">
+          <p class="about-lead" data-reveal>Trabajamos con compañías, instituciones y marcas de sectores muy distintos.
+            Algunas llevan muchos años confiando en nosotros. Otras acaban de llegar. A todas queremos aportarles lo
+            mismo: criterio, compromiso y resultados.</p>
+        </div>
+      </section>
+    </article>
+
+    <div class="about-logos" data-theme="light" aria-label="Algunos de nuestros clientes">
+      <div class="about-logos__row">
+        <div class="logos__track" data-marquee data-speed="40">
+          <div class="logos__group">
+            <img src="./assets/clients/san-miguel.svg" style="--f:0.77" alt="San Miguel" />
+            <img src="./assets/clients/athletic-club.svg" style="--f:1.05" alt="Athletic Club" />
+            <img src="./assets/clients/euskadiko-orkestra.svg" style="--f:0.78" alt="Euskadiko Orkestra" />
+            <img src="./assets/clients/pernod-ricard.svg" style="--f:0.68" alt="Pernod Ricard" />
+            <img src="./assets/clients/palacios.svg" style="--f:0.84" alt="Palacios" />
+            <img src="./assets/clients/donostia-turismoa.svg" style="--f:0.57" alt="Donostia San Sebastián Turismoa" />
+            <img src="./assets/clients/sd-eibar.svg" style="--f:1.18" alt="SD Eibar" />
+            <img src="./assets/clients/ikerbasque.svg" style="--f:0.63" alt="Ikerbasque" />
+            <img src="./assets/clients/upv-ehu.svg" style="--f:0.89" alt="UPV/EHU" />
+            <img src="./assets/clients/tuc-tuc.svg" style="--f:1.17" alt="Tuc Tuc" />
+            <img src="./assets/clients/gh-cranes.svg" style="--f:0.74" alt="GH Cranes" />
+            <img src="./assets/clients/timac.svg" style="--f:0.71" alt="Timac Agro" />
+            <img src="./assets/clients/bm.svg" style="--f:0.61" alt="BM Supermercados" />
+            <img src="./assets/clients/san-martin-merkatua.svg" style="--f:0.81" alt="San Martín Merkatua" />
+            <img src="./assets/clients/elaienea.svg" style="--f:0.56" alt="Elaienea" />
+            <img src="./assets/clients/revolugreen.svg" style="--f:0.78" alt="Revolu Green" />
+          </div>
+        </div>
+      </div>
+      <div class="about-logos__row" aria-hidden="true">
+        <div class="logos__track" data-marquee data-speed="-40">
+          <div class="logos__group">
+            <img src="./assets/clients/donostia-turismoa.svg" style="--f:0.57" alt="Donostia San Sebastián Turismoa" />
+            <img src="./assets/clients/sd-eibar.svg" style="--f:1.18" alt="SD Eibar" />
+            <img src="./assets/clients/ikerbasque.svg" style="--f:0.63" alt="Ikerbasque" />
+            <img src="./assets/clients/upv-ehu.svg" style="--f:0.89" alt="UPV/EHU" />
+            <img src="./assets/clients/tuc-tuc.svg" style="--f:1.17" alt="Tuc Tuc" />
+            <img src="./assets/clients/gh-cranes.svg" style="--f:0.74" alt="GH Cranes" />
+            <img src="./assets/clients/timac.svg" style="--f:0.71" alt="Timac Agro" />
+            <img src="./assets/clients/bm.svg" style="--f:0.61" alt="BM Supermercados" />
+            <img src="./assets/clients/san-martin-merkatua.svg" style="--f:0.81" alt="San Martín Merkatua" />
+            <img src="./assets/clients/elaienea.svg" style="--f:0.56" alt="Elaienea" />
+            <img src="./assets/clients/revolugreen.svg" style="--f:0.78" alt="Revolu Green" />
+            <img src="./assets/clients/san-miguel.svg" style="--f:0.77" alt="San Miguel" />
+            <img src="./assets/clients/athletic-club.svg" style="--f:1.05" alt="Athletic Club" />
+            <img src="./assets/clients/euskadiko-orkestra.svg" style="--f:0.78" alt="Euskadiko Orkestra" />
+            <img src="./assets/clients/pernod-ricard.svg" style="--f:0.68" alt="Pernod Ricard" />
+            <img src="./assets/clients/palacios.svg" style="--f:0.84" alt="Palacios" />
+          </div>
+        </div>
+      </div>
+      <div class="about-logos__row" aria-hidden="true">
+        <div class="logos__track" data-marquee data-speed="40">
+          <div class="logos__group">
+            <img src="./assets/clients/gh-cranes.svg" style="--f:0.74" alt="GH Cranes" />
+            <img src="./assets/clients/timac.svg" style="--f:0.71" alt="Timac Agro" />
+            <img src="./assets/clients/bm.svg" style="--f:0.61" alt="BM Supermercados" />
+            <img src="./assets/clients/san-martin-merkatua.svg" style="--f:0.81" alt="San Martín Merkatua" />
+            <img src="./assets/clients/elaienea.svg" style="--f:0.56" alt="Elaienea" />
+            <img src="./assets/clients/revolugreen.svg" style="--f:0.78" alt="Revolu Green" />
+            <img src="./assets/clients/san-miguel.svg" style="--f:0.77" alt="San Miguel" />
+            <img src="./assets/clients/athletic-club.svg" style="--f:1.05" alt="Athletic Club" />
+            <img src="./assets/clients/euskadiko-orkestra.svg" style="--f:0.78" alt="Euskadiko Orkestra" />
+            <img src="./assets/clients/pernod-ricard.svg" style="--f:0.68" alt="Pernod Ricard" />
+            <img src="./assets/clients/palacios.svg" style="--f:0.84" alt="Palacios" />
+            <img src="./assets/clients/donostia-turismoa.svg" style="--f:0.57" alt="Donostia San Sebastián Turismoa" />
+            <img src="./assets/clients/sd-eibar.svg" style="--f:1.18" alt="SD Eibar" />
+            <img src="./assets/clients/ikerbasque.svg" style="--f:0.63" alt="Ikerbasque" />
+            <img src="./assets/clients/upv-ehu.svg" style="--f:0.89" alt="UPV/EHU" />
+            <img src="./assets/clients/tuc-tuc.svg" style="--f:1.17" alt="Tuc Tuc" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA final (como en Proyectos): círculo coral -->
+    <section class="about-cta" data-theme="light" aria-label="Contacto">
+      <a class="circle-btn" href="./contacto.html"><span>¿Hablamos?</span></a>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FRANJA NEWSLETTER — marquee con círculos
+       =================================================================== -->
+  <a class="strip" href="./noticia.html?slug=acc-radar" data-theme="light"
+    aria-label="Inscríbete a nuestra newsletter: El radar creativo">
+    <div class="strip__track" data-marquee data-speed="60" aria-hidden="true">
+      <div class="strip__group">
+        <span class="strip__item"><span class="strip__dot"></span>Inscríbete a nuestra newsletter — <strong>El radar
+            creativo</strong></span>
+        <span class="strip__item"><span class="strip__dot"></span>Inscríbete a nuestra newsletter — <strong>El radar
+            creativo</strong></span>
+        <span class="strip__item"><span class="strip__dot"></span>Inscríbete a nuestra newsletter — <strong>El radar
+            creativo</strong></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="footer" data-theme="dark">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <span class="footer__pill">Links</span>
+        <a href="./contacto.html">Contacto</a>
+        <a href="./talento.html">Talento</a>
+        <a href="https://www.acc.com.es/es/aviso-legal" target="_blank" rel="noopener">Aviso legal</a>
+        <a href="https://www.acc.com.es/es/proteccion-datos" target="_blank" rel="noopener">Protección de datos</a>
+        <a href="https://www.acc.com.es/es/politica-cookies" target="_blank" rel="noopener">Cookies</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__pill">Contacto</span>
+        <a href="mailto:acc@acc.com.es">acc@acc.com.es</a>
+        <a href="tel:+34943311566">+34 943 311 566</a>
+        <p>Camino de Portuetxe 18, 2C<br />20018 Donostia–San Sebastián</p>
+      </div>
+      <div class="footer__col">
+        <span class="footer__pill">Social</span>
+        <a href="https://www.instagram.com/agencia.acc/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/acc-agencia-digital" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/AccComunicacion" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/user/ACCAgenciaDigital" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="footer__group">
+        <p>Somos ACC.<br />Y somos Grupo ACC.</p>
+        <img src="./assets/brand/group/grupo-acc-blanco.svg" alt="Grupo ACC" />
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <a class="footer__logo" href="#top" aria-label="ACC — Volver al inicio">
+        <img src="./assets/brand/logo-blanco.svg" alt="ACC" />
+      </a>
+      <div class="footer__credits">
+        <p>©ACC 2026</p>
+        <p>ACC Comunicación · Grupo ACC</p>
+        <p>Donostia – San Sebastián</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="./js/caso.js"></script>
+  <script src="./js/nosotros.js"></script>
+  <script src="./js/menu.js"></script>
+</body>
+
+</html>

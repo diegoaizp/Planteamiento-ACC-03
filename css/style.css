@@ -1,0 +1,525 @@
+/* =========================================================================
+   ACC 6 BOLD — Home
+   Componentes construidos sobre tokens.css (sistema ACC 6 BOLD)
+   ========================================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  color: var(--c-black);
+  /* --page-tint (js): color de la paleta al hacer hover en el manifiesto. Lo comparten el
+     body y todas las secciones blancas, así no se nota el corte entre secciones */
+  background: var(--page-tint, var(--c-white));
+  transition: background-color var(--dur) var(--ease-out);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--c-lilac); outline-offset: 3px; }
+
+/* Lenis (smooth scroll) */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* =========================================================================
+   LOADER 
+   Sobre negro los trazos A–C–C dibujan el logo; luego se desliza a su sitio,
+   el reel se enfoca y entran los botones. Scroll bloqueado mientras dura.
+   ========================================================================= */
+.logo-stroke { fill: none; stroke: #fff; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+html.is-loading, html.is-loading body { overflow: hidden !important; overscroll-behavior: none; }
+.is-loading .logo-shape { opacity: 0; mask: url(#logo-loader-draw); }
+.is-loading [data-nav-item] { opacity: 0; }
+.is-loading .stage__video video { opacity: 0; }
+.is-loading .nav__logo { pointer-events: none; }
+
+/* =========================================================================
+   NAV — logo + botones blancos con forma (píldora · hexágono · rectángulo)
+   ========================================================================= */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 70;   /* por encima del menú (60) */
+  display: flex; align-items: center; justify-content: space-between;
+  /* --sbw (js/menu.js): ancho de la barra de scroll que desaparece al abrir el menú;
+     se compensa para que los botones no salten a la derecha */
+  padding: var(--nav-top) calc(var(--pad) + var(--sbw, 0px)) 0 var(--pad);
+  pointer-events: none;
+  --logo-c: var(--c-white);
+}
+.nav[data-theme="light"] { --logo-c: var(--c-black); }
+.nav > * { pointer-events: auto; }
+
+/* El logo arranca en el hero (js: transform) y se reduce con el scroll hasta aquí */
+.nav__logo {
+  display: block; width: 114px; color: var(--logo-c);
+  transform-origin: 0 0;
+  transition: color var(--dur) var(--ease-out);
+}
+.nav__logo svg { width: 100%; height: auto; overflow: visible; }
+
+.nav__links { display: flex; gap: 10px; }
+.shape-btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  height: 46px; padding: 12px 14px;
+  font-size: var(--t-nav); font-weight: 500; line-height: 1.4; letter-spacing: -0.02em;
+  text-transform: uppercase; text-decoration: none;
+  /* Blancos sobre el hero; negros al salir de él (js: nav[data-zone]) */
+  color: var(--btn-ink, var(--c-black)); background: var(--btn-bg, var(--c-white));
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.nav[data-zone="page"] { --btn-bg: var(--c-black); --btn-ink: var(--c-white); }
+.shape-btn:hover { transform: scale(1.08); }
+.shape-btn--pill { border-radius: 999px; }
+.shape-btn--hex { padding: 12px 23px; clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%); }
+.shape-btn--rect { padding: 12px; border-radius: 0; }
+/* Página actual (páginas interiores): coral ACC con texto negro */
+.nav .shape-btn[aria-current="page"] { background: var(--c-acc-coral); color: var(--c-black); }
+/* Header: pills de 99px pegadas entre sí (sin margen); la página actual, coral y sin radius */
+.nav__links { gap: 0; }
+.nav .shape-btn { clip-path: none; border-radius: 99px; padding: 12px 14px; font-weight: 700; }
+.nav .shape-btn:hover { transform: none; }
+.nav .shape-btn[aria-current="page"] { border-radius: 0; background: var(--c-acc-coral); color: var(--c-black); }
+/* Fuera del hero, sobre secciones negras, un contorno blanco de 1px mantiene visibles los botones negros */
+.nav__links > li { transition: filter var(--dur) var(--ease-out); }
+.nav[data-zone="page"][data-theme="dark"] .nav__links > li,
+.nav[data-zone="page"][data-theme="dark"] .nav__burger {
+  filter: drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff) drop-shadow(0 1px 0 #fff) drop-shadow(0 -1px 0 #fff);
+}
+@media (max-width: 1023px) { .nav__logo { width: 74px; } }
+@media (max-width: 767px) { .nav__logo { width: 64px; } }
+
+/* Proyectos · Contacto · hamburguesa, igual en todos los tamaños. La hamburguesa
+   abre el menú (menu.css, fondo coral) y se transforma en «cerrar»: de círculo
+   blanco a cuadrado negro. Con el menú abierto, Proyectos y Contacto se ocultan. */
+.nav__actions { display: flex; align-items: center; }
+
+.nav .nav__burger {
+  position: relative; width: 46px; padding: 0;
+  /* 50% (no 99px) para que el paso a cuadrado se anime en todo su recorrido:
+     de 99px a 23px no cambiaría nada y el cambio se vería de golpe al final */
+  border-radius: 50%;
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur) var(--ease-out),
+              color var(--dur) var(--ease-out), border-radius var(--dur) var(--ease-io), filter var(--dur) var(--ease-out);
+}
+/* Abierto: cuadrado negro con icono blanco (sobre el fondo coral del menú) */
+.nav .nav__burger[aria-expanded="true"] { border-radius: 0; background: var(--c-black); color: var(--c-white); }
+/* Iconos superpuestos: menu ↔ close con fundido y giro, sin corte */
+.nav__burger .material-symbols-outlined {
+  position: absolute; top: 50%; left: 50%;
+  font-size: 24px; line-height: 1;
+  transition: opacity var(--dur-fast) linear, transform var(--dur) var(--ease-io);
+}
+.nav__burger-open  { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+.nav__burger-close { opacity: 0; transform: translate(-50%, -50%) rotate(-90deg); }
+.nav__burger[aria-expanded="true"] .nav__burger-open  { opacity: 0; transform: translate(-50%, -50%) rotate(90deg); }
+.nav__burger[aria-expanded="true"] .nav__burger-close { opacity: 1; transform: translate(-50%, -50%) rotate(0deg); }
+
+/* Con el menú abierto, Proyectos y Contacto se retiran hacia la hamburguesa
+   (que no se mueve: se ocultan sin sacarlos del flujo) */
+.nav__actions > nav {
+  transition: opacity var(--dur-fast) linear, transform var(--dur) var(--ease-out),
+              filter var(--dur) var(--ease-out), visibility 0s linear 0s;
+}
+body:has(.menu.is-open) .nav__actions > nav {
+  opacity: 0; transform: translateX(14px); filter: blur(8px); visibility: hidden; pointer-events: none;
+  transition: opacity var(--dur-fast) linear, transform var(--dur) var(--ease-out),
+              filter var(--dur) var(--ease-out), visibility 0s linear var(--dur);
+}
+
+/* Con el menú abierto: botones blancos sobre negro, sin contorno; el logo de la nav
+   (que en el hero es grande) se oculta y manda el del menú */
+body:has(.menu.is-open) .nav { --btn-bg: var(--c-white); --btn-ink: var(--c-black); }
+body:has(.menu.is-open) .nav .nav__links > li,
+body:has(.menu.is-open) .nav .nav__burger { filter: none; }
+.nav .nav__logo { transition: color var(--dur) var(--ease-out), opacity var(--dur-fast) linear; }
+body:has(.menu.is-open) .nav .nav__logo { opacity: 0; pointer-events: none; }
+
+@media (max-width: 809px) {
+  .nav .shape-btn { height: 40px; padding: 10px 12px; font-size: 14px; }
+  .nav .nav__burger { width: 40px; padding: 0; border-radius: 50%; }
+  .nav .nav__burger[aria-expanded="true"] { border-radius: 0; }
+  .nav__burger .material-symbols-outlined { font-size: 22px; }
+}
+
+
+/* =========================================================================
+   ESCENARIO — reel + frase sticky; el manifiesto entra por encima.
+   --hero-blur (js) desenfoca progresivamente; --fade (0/1, con transición)
+   apaga el vídeo y pasa el manifiesto de blanco a negro.
+   ========================================================================= */
+@property --fade { syntax: '<number>'; inherits: true; initial-value: 0; }
+
+.stage {
+  position: relative;
+  --fade: 0;
+  transition: --fade 550ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stage__sticky {
+  position: sticky; top: 0; z-index: 0;
+  height: 100vh; height: 100svh;
+  margin-bottom: -100vh; margin-bottom: -100svh;
+  overflow: hidden; pointer-events: none;
+}
+.stage__video { position: absolute; inset: 0; background: var(--c-black); opacity: calc(1 - var(--fade)); }
+.stage__video video {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.82) blur(var(--hero-blur, 0px));
+  transform-origin: center;
+}
+.stage__scrim { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.3); }
+
+/* Espaciador del hero: 75% del alto para que el manifiesto entre antes sobre el reel
+   (empieza a asomar con el primer scroll, sin verse al cargar) */
+.hero { position: relative; z-index: 1; height: 75vh; height: 75svh; }
+@media (max-width: 809px) { .hero { height: 100vh; height: 100svh; } }
+
+/* Frase: centrada en vertical, alineada a la izquierda con su borde izquierdo en el
+   centro de la página y confinada a la mitad derecha. El cuerpo (--claim-fs, js/main.js)
+   es el mayor con el que «Cambian los comportamientos.», la frase más larga del carrusel,
+   cabe en una línea. La frase de cierre es más larga: salta a dos líneas (entre sus dos
+   partes, que nunca se parten) y sigue centrada. */
+.hero__claim {
+  position: absolute; left: 50vw; top: 50%; translate: 0 -50%;
+  color: var(--c-white);
+  width: calc(50vw - var(--pad));
+  font-size: var(--claim-fs, min(var(--t-claim), 3vw)); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em;
+  white-space: normal; text-wrap: balance;
+  opacity: calc((1 - var(--fade)) * var(--claim-o, 1));
+  filter: blur(var(--claim-blur, 0px));
+}
+.claim__line { display: inline-grid; overflow: hidden; vertical-align: top; }
+.claim__slot { grid-area: 1 / 1; white-space: nowrap; }
+/* Carrusel continuo: acelera al salir y frena con ease al llegar (easeInOutQuart) */
+.claim__w { display: inline-block; transition: transform var(--claim-dur, 520ms) cubic-bezier(0.76, 0, 0.24, 1); }
+.claim__slot.is-below .claim__w { transform: translateY(calc(var(--h, 1.2em) * 1.05)); }
+.claim__slot.is-above .claim__w { transform: translateY(calc(var(--h, 1.2em) * -1.05)); }
+
+@media (max-width: 1199px) {
+  .hero__claim {
+    left: var(--pad); top: calc(50% + 16px); translate: none;
+    width: auto; font-size: min(var(--t-claim), 9.5vw); white-space: normal;
+  }
+  .claim__line { display: grid; }
+  .claim__slot { white-space: normal; }
+}
+
+/* =========================================================================
+   MANIFIESTO — palabras clave subrayadas; en hover aparece su gif encima
+   ========================================================================= */
+.statement {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 160px 160px;
+  color: color-mix(in srgb, var(--c-black) calc(var(--fade) * 100%), var(--c-white));
+  /* Fondo transparente: se ve el del body (blanco o --page-tint en hover) */
+}
+.statement__text {
+  max-width: 1120px; text-align: center; text-wrap: balance;
+  font-size: var(--t-statement); font-weight: 600; line-height: 1.2;
+}
+.hl {
+  position: relative; cursor: pointer;
+  text-decoration: underline; text-decoration-thickness: 0.06em; text-underline-offset: 0.14em;
+}
+.hl:focus-visible { outline: none; }
+.hl__gif {
+  position: absolute; left: 50%; top: 50%; z-index: 2;
+  width: 3.4em; aspect-ratio: 3 / 2; overflow: hidden;
+  translate: -50% -50%; scale: 0.6; opacity: 0;
+  transition: opacity 0.2s linear, scale 0.45s var(--ease-out);
+  pointer-events: none;
+}
+.hl__gif img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.hl__gif img.is-active { opacity: 1; }
+.hl__gif video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hl:hover .hl__gif, .hl:focus-visible .hl__gif, .hl.is-on .hl__gif { opacity: 1; scale: 1; }
+
+@media (max-width: 1199px) { .statement { padding: 160px var(--pad); } }
+@media (max-width: 809px)  { .statement { min-height: 0; padding: 48px var(--pad) 120px; } .statement__text { line-height: 1.3; } }
+
+/* =========================================================================
+   TÍTULO DE SECCIÓN (108 / 700 / MAYÚSCULAS)
+   ========================================================================= */
+.section-title {
+  font-size: var(--t-section); font-weight: 700; line-height: 1.1;
+  text-transform: uppercase; text-align: center;
+}
+.section-subtitle {
+  margin-top: 10px;
+  font-size: var(--t-subtitle); font-weight: 500; line-height: 1.2; text-align: center;
+}
+
+/* =========================================================================
+   TARJETA — imagen + textos; hover = zoom suave de la imagen
+   ========================================================================= */
+.card { display: block; text-decoration: none; color: inherit; }
+.card__media { position: relative; overflow: hidden; background: #f2f2f2; aspect-ratio: var(--ratio, 503 / 437); }
+.card__media > img, .card__media > video {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.9s var(--ease-out);
+}
+.card:hover .card__media > img, .card:hover .card__media > video,
+.card:focus-visible .card__media > img, .card:focus-visible .card__media > video { transform: scale(1.05); }
+.card__meta { margin-top: 10px; }
+.card__title { font-size: var(--t-h3); font-weight: 500; line-height: 1.2; }
+/* Proyecto: mismo tamaño y peso que el cliente, solo cambia el color */
+.card__project { font-size: var(--t-h3); font-weight: 500; line-height: 1.2; color: var(--c-meta); }
+.card__tag { font-size: var(--t-tag); font-weight: 400; line-height: 1.6; color: var(--c-meta); }
+/* Proyectos (home y página de Proyectos): marca y título en un peso más gordo.
+   Las noticias mantienen 500. */
+.work .card__title, .work .card__project { font-weight: var(--w-project); }
+
+/* =========================================================================
+   CASOS — título sticky + grid de 3 columnas con anchos y proporciones distintos
+   ========================================================================= */
+.work {
+  position: relative; padding: 200px var(--pad) 200px;
+  background: var(--page-tint, var(--c-white));
+  transition: background-color var(--dur) var(--ease-out);
+}
+.work__title { position: sticky; top: var(--sticky-title-top); z-index: 3; pointer-events: none; }
+.work__grid {
+  position: relative; z-index: 1; margin-top: 160px;
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 40px; row-gap: var(--row-gap); align-items: start;
+}
+.work__grid .card { grid-column: span var(--span, 4); }
+
+/* =========================================================================
+   TITULAR DE PÁGINA INTERIOR (Proyectos, Nosotros) — sticky en su propia
+   posición (top = padding superior de la página) y confinado en .page-head:
+   no se mueve mientras lo siguiente sube por el hueco (::after) y, cuando lo
+   alcanza, lo arrastra hacia arriba. Cada página fija su --page-head-gap.
+   ========================================================================= */
+.page-head { --page-head-top: 200px; --page-head-gap: 120px; }
+.page-head > .section-title { position: sticky; top: var(--page-head-top); z-index: 3; pointer-events: none; }
+.page-head::after { content: ""; display: block; height: var(--page-head-gap); }
+@media (max-width: 809px) { .page-head { --page-head-top: 120px; } }
+/* Home: «Proyectos» se queda fijo y el grid lo arrastra; el hueco lo da --page-head-gap */
+.work__head { --page-head-top: var(--sticky-title-top); --page-head-gap: 220px; }
+.work .work__head + .work__grid { margin-top: 0; }
+@media (max-width: 809px) { .work__head { --page-head-gap: 120px; } }
+@media (max-width: 809px) {
+  .work { padding: 120px var(--pad); }
+  .work__grid { grid-template-columns: 1fr; margin-top: 80px; }
+  .work__grid .card { grid-column: auto; }
+}
+
+/* CTA circular · coral ACC */
+.circle-btn {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 220px; height: 220px; margin: 140px auto 0; padding: 0 20px; text-align: center;
+  font-size: var(--t-h3); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em;
+  color: var(--c-black); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 4px;
+}
+.circle-btn::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--c-acc-coral);
+  transition: transform 0.6s var(--ease-out);
+}
+.circle-btn:hover::before { transform: scale(1.08); }
+.circle-btn span { position: relative; }
+/* El botón pasa por encima del titular sticky «Proyectos» (z-index 3) cuando se cruzan */
+.work .circle-btn { z-index: 4; }
+@media (max-width: 809px) { .circle-btn { width: 180px; height: 180px; margin-top: 96px; } }
+
+/* =========================================================================
+   FRANJA DE LOGOS DE CLIENTES (negra, marquee)
+   ========================================================================= */
+.logos {
+  height: var(--logos-h); background: var(--c-black); overflow: hidden;
+  display: flex; align-items: center;
+}
+.logos__track { display: flex; align-items: center; will-change: transform; }
+.logos__group { display: flex; align-items: center; gap: 64px; padding-right: 64px; }
+.logos__group img { height: 24px; width: auto; max-width: 110px; object-fit: contain; filter: brightness(0) invert(1); }
+
+/* =========================================================================
+   SECTORES — lista + tarjeta en el eje central (la ocupación de Servicios):
+   lista en las columnas 2–6 y tarjeta cuadrada en las 7–11, una columna libre a
+   cada lado (tablet: 1–6 / 7–12). Titular «SECTORES» con .page-head, como
+   Proyectos y Noticias.
+   · Tarjeta: fondo profundo + logos en el tono claro (el par de la paleta; el
+     hover a sangre de antes, ahora enmarcado). Yellow y stone llevan logos en
+     negro: su par no tiene contraste.
+   · Hover / foco: la página toma el tono claro (--page-tint, el mecanismo del
+     manifiesto) y el resto de la lista pasa a --c-muted. Al salir, vuelve a blanco y la tarjeta muestra
+     todas las marcas en gris sobre fondo gris claro.
+   · Cambio de sector: el color cruza en 0,45 s y los logos entran con el gesto
+     de los botones del hero (opacidad + 14 px + blur 8 px, 60 ms entre logos).
+   ========================================================================= */
+.sectors {
+  --sector-card: #f5f5f5; --sector-ink: #ffffff;
+  /* Sin franja de logos entre medias: Proyectos ya deja sus 200 px debajo, así
+     que Sectores no suma padding superior (el tinte es de página y no hay corte) */
+  position: relative; padding: 0 var(--pad) 200px;
+  background: var(--page-tint, var(--c-white));
+  transition: background-color var(--dur) var(--ease-out);
+}
+.sectors__head { --page-head-top: var(--sticky-title-top); --page-head-gap: 160px; }
+.sectors__grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 40px;
+  align-items: center;
+}
+
+/* Lista: tipografía de lista del sistema (52 / 42 / 24 · --w-list) */
+.sectors__list { grid-column: 2 / 7; margin: 0; padding: 0; list-style: none; }
+.sectors__link {
+  display: inline-block; text-decoration: none;
+  font-size: var(--t-list); font-weight: var(--w-list); line-height: 1.2; letter-spacing: -0.01em;
+  color: var(--c-black); transition: color var(--dur-fast) linear;
+}
+.sectors.is-active .sectors__link { color: var(--c-muted); }
+.sectors.is-active .sectors__link.is-active { color: var(--c-black); }
+.sectors__link:focus-visible { outline-offset: 6px; }
+
+/* Tarjeta cuadrada (1:1) dentro del margen */
+.sectors__card {
+  grid-column: 7 / 12; position: relative; display: block; aspect-ratio: 1;
+  overflow: hidden; color: var(--sector-ink); text-decoration: none;
+  background: var(--sector-card);
+  transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
+}
+.sectors__stage { position: absolute; inset: 0; }
+
+/* Logos: rejilla según cuántos haya (1 · 2 en fila · 4 en 2×2), con aire
+   generoso para que la tarjeta respire */
+.sectors__logos {
+  position: absolute; inset: 14% 12% 20%;
+  display: grid; grid-template-columns: repeat(var(--cols, 2), 1fr); grid-auto-rows: 1fr;
+  gap: 12% 14%; align-items: center; justify-items: center;
+  pointer-events: none;
+}
+.sectors__logos[data-n="1"] { --cols: 1; inset: 22% 18% 28%; }
+.sectors__logos[data-n="2"] { --cols: 2; inset: 30% 10% 36%; }
+.sectors__logo {
+  display: block; width: 100%; height: 100%;
+  background: currentColor;
+  -webkit-mask: var(--logo) center / contain no-repeat;
+          mask: var(--logo) center / contain no-repeat;
+  opacity: 0; translate: 0 14px; filter: blur(8px);
+  transition: opacity .3s var(--ease-out), translate .3s var(--ease-out), filter .3s var(--ease-out);
+}
+/* Los cuadros de logo se ajustan a su forma: las marcas horizontales llenan el
+   ancho, los escudos y verticales se limitan en alto */
+.sectors__logos[data-n="1"] .sectors__logo { max-height: 70%; }
+.sectors__logos.is-in .sectors__logo {
+  opacity: 1; translate: 0 0; filter: blur(0);
+  transition-duration: .7s; transition-delay: calc(var(--i, 0) * 60ms + 120ms);
+}
+
+/* Reposo: las 16 marcas en una composición de 4 × 4. */
+.sectors__logos--all { --cols: 4; inset: 10%; gap: 9% 7%; }
+.sectors__logos--all .sectors__logo { transition-delay: 0s; }
+.sectors__card.is-idle .sectors__caption { visibility: hidden; }
+
+/* Pie de la tarjeta: sector a 24/500 y flecha (el enlace de Servicios); en hover
+   la flecha avanza 6 px */
+.sectors__caption {
+  position: absolute; left: 32px; right: 32px; bottom: 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font-size: var(--t-h3); font-weight: 500; line-height: 1.2; letter-spacing: -0.01em;
+}
+.sectors__caption-arrow { font-size: 1.2em; transition: transform var(--dur) var(--ease-out); }
+.sectors__card:hover .sectors__caption-arrow { transform: translateX(6px); }
+
+@media (max-width: 1199px) {
+  .sectors { padding: 0 var(--pad) 160px; }
+  .sectors__list { grid-column: 1 / 7; }
+  .sectors__card { grid-column: 7 / 13; }
+  .sectors__caption { left: 24px; right: 24px; bottom: 20px; }
+}
+@media (max-width: 809px) {
+  .sectors { padding: 0 var(--pad) 120px; }
+  .sectors__head { --page-head-gap: 80px; }
+  .sectors__grid { grid-template-columns: 1fr; row-gap: 40px; }
+  .sectors__list, .sectors__card { grid-column: 1; }
+  .sectors__caption { left: 16px; right: 16px; bottom: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sectors__logo, .sectors__logos.is-in .sectors__logo { translate: none; filter: none; transition: opacity .2s linear; transition-delay: 0s; }
+}
+
+/* =========================================================================
+   NOTICIAS — fondo rosa de acento ACC
+   ========================================================================= */
+.news { padding: 200px var(--pad); background: var(--c-acc-mint-light); color: var(--c-black); }
+.news .circle-btn::before { background: var(--c-acc-mint); }
+.news__head { --page-head-top: var(--sticky-title-top); --page-head-gap: 220px; }
+.news__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.news .card__media { background: rgba(0, 0, 0, 0.06); }
+.news .card__tag { color: rgba(0, 0, 0, 0.6); }
+@media (max-width: 1199px) { .news__grid { grid-template-columns: repeat(2, 1fr); row-gap: 80px; } }
+@media (max-width: 809px)  { .news { padding: 120px var(--pad); } .news__grid { grid-template-columns: 1fr; row-gap: 56px; }
+  .news__head { --page-head-gap: 120px; } }
+
+/* =========================================================================
+   FRANJA NEWSLETTER (lila, marquee con círculos)
+   ========================================================================= */
+.strip {
+  display: flex; align-items: center; height: var(--strip-h); overflow: hidden;
+  background: var(--c-acc-coral); color: var(--c-black); text-decoration: none;
+}
+.strip__track { display: flex; will-change: transform; }
+.strip__group { display: flex; align-items: center; }
+.strip__item {
+  display: inline-flex; align-items: center; padding-right: 48px;
+  font-size: var(--t-marquee); font-weight: 400; line-height: 1; white-space: nowrap;
+}
+.strip__item strong { font-weight: 600; margin-left: 0.3em; text-transform: uppercase; }
+.strip__dot { width: 30px; height: 30px; margin-right: 22px; border-radius: 50%; background: var(--c-black); flex: none; }
+@media (max-width: 809px) { .strip__dot { width: 24px; height: 24px; } }
+
+/* =========================================================================
+   FOOTER — compacto
+   ========================================================================= */
+.footer {
+  display: flex; flex-direction: column; gap: 72px;
+  padding: 80px var(--pad) var(--pad);
+  background: var(--c-black); color: var(--c-white);
+  font-size: var(--t-body); line-height: 1.6;
+}
+.footer__cols { display: flex; gap: 120px; flex-wrap: wrap; }
+.footer__col { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.footer__pill {
+  display: inline-block; padding: 0 9px; border: 1px solid currentColor; border-radius: 999px;
+  line-height: 1.5;
+}
+.footer__col a { text-decoration: underline; text-underline-offset: 2px; }
+.footer__col p { margin: 0; }
+.footer__bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
+.footer__group { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; text-align: right; }
+.footer__group p { margin: 0; }
+.footer__group img { display: block; width: 220px; height: auto; }
+.footer__logo { display: block; width: 180px; }   /* header: 114px */
+.footer__logo img { display: block; width: 100%; height: auto; }
+.footer__credits { text-align: right; }
+@media (max-width: 809px) {
+  .footer { padding-top: 64px; gap: 56px; font-size: 13px; }
+  .footer__cols { gap: 40px; }
+  .footer__credits { text-align: left; }
+  .footer__group { margin-left: 0; align-items: flex-start; text-align: left; }
+  .footer__group img { width: 180px; }
+  .footer__logo { width: 150px; }
+}
+
+/* =========================================================================
+   Reveal
+   ========================================================================= */
+[data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); }
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  [data-reveal] { opacity: 1; transform: none; }
+}

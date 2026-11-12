@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Servicios — ACC</title>
+  <meta name="description"
+    content="Branding, Comunicación, Experience, RRSS, Media, E-commerce y Marketing Digital. Los servicios de ACC, agencia de comunicación, estrategia de marca y marketing digital." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap"
+    rel="stylesheet" />
+  <!-- Iconos: Material Symbols (fonts.google.com/icons), solo los que usa la página (orden alfabético) -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward,close,menu&display=block" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/tokens.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/menu.css" />
+  <link rel="stylesheet" href="./css/caso.css" />
+  <link rel="stylesheet" href="./css/servicios.css" />
+</head>
+
+<!-- Componentes de la ficha de caso (caso.css / caso.js) + los propios de esta página
+     (servicios.css / servicios.js). data-svc-tint: color de página mientras se recorren los
+     servicios (un solo color para todo el tramo, de Branding a Mkt. Digital) -->
+
+<body class="page-services">
+  <header class="nav" data-nav data-theme="light" data-zone="page">
+    <a href="./index.html" class="nav__logo" aria-label="ACC — Volver al inicio">
+      <svg viewBox="0 0 114 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path id="acc-logo-path" fill="currentColor"
+          d="M81.2002 19C81.2002 7.58944 88.3312 0 98.472 0C106.924 0 112.945 5.20178 114 12.9485H109.459C109.039 10.3479 107.693 7.98883 105.673 6.30999C103.652 4.63115 101.093 3.74672 98.472 3.82111C91.2916 3.82111 85.6891 9.65939 85.6891 19C85.6891 28.3406 91.2916 34.1789 98.472 34.1789C101.093 34.2532 103.652 33.3687 105.673 31.6896C107.694 30.0106 109.039 27.6513 109.459 25.0504H114C112.945 32.7982 106.924 38 98.472 38C88.3312 38 81.2002 30.4084 81.2002 19ZM41.0602 19C41.0602 7.58944 48.1913 0 58.3321 0C66.7837 0 72.8022 5.20178 73.8601 12.9485H69.3175C68.8993 10.3474 67.5545 7.98757 65.5336 6.30847C63.5127 4.62938 60.9533 3.7454 58.3321 3.82111C51.1485 3.82111 45.5492 9.65939 45.5492 19C45.5492 28.3406 51.1485 34.1789 58.3321 34.1789C60.9531 34.253 63.5117 33.3683 65.5323 31.6893C67.5529 30.0102 68.898 27.6511 69.3175 25.0504H73.8601C72.8022 32.7982 66.7837 38 58.3321 38C48.1913 38 41.0602 30.4084 41.0602 19ZM33.6172 37.4152L29.4024 26.8016H8.59549L4.38284 37.4152H0L14.8935 0.582667H18.9989L10.0915 23.0322H27.9075L18.9989 0.582667H23.1023L37.999 37.4152H33.6172Z" />
+      </svg>
+    </a>
+    <div class="nav__actions">
+      <nav aria-label="Navegación principal">
+        <ul class="nav__links">
+          <li data-nav-item><a class="shape-btn shape-btn--pill" href="./proyectos.html">Proyectos</a></li>
+          <li data-nav-item><a class="shape-btn shape-btn--pill" href="./contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="shape-btn nav__burger" type="button" data-nav-item data-menu-open aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <span class="material-symbols-outlined nav__burger-open" aria-hidden="true">menu</span>
+        <span class="material-symbols-outlined nav__burger-close" aria-hidden="true">close</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menú: en esta página, los servicios son los de la opción aprobada (opción aprobada)
+       y enlazan a su sección -->
+  <div class="menu" id="menu" data-menu aria-hidden="true" data-lenis-prevent>
+    <div class="menu__top">
+      <a href="./index.html" class="menu__logo" aria-label="ACC — Volver al inicio" data-menu-link>
+        <svg viewBox="0 0 114 38" fill="none" aria-hidden="true"><use href="#acc-logo-path" /></svg>
+      </a>
+    </div>
+
+    <nav class="menu__stack" aria-label="Menú">
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./proyectos.html" data-menu-link><span class="menu__mask"><span>Proyectos</span></span></a></h2>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./nosotros.html" data-menu-link><span class="menu__mask"><span>Nosotros</span></span></a></h2>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./servicios.html" data-menu-link aria-current="page"><span class="menu__mask"><span>Servicios</span></span></a></h2>
+        <div class="menu__body menu__services">
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#branding" data-menu-link>Branding</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./servicio-estrategia-de-marca.html" data-menu-link>Estrategia de marca</a></span></li>
+              <li><span class="menu__mask"><a href="#branding" data-menu-link>Naming</a></span></li>
+              <li><span class="menu__mask"><a href="#branding" data-menu-link>Sistemas de identidad visual</a></span></li>
+              <li><span class="menu__mask"><a href="#branding" data-menu-link>Diseño de packaging</a></span></li>
+              <li><span class="menu__mask"><a href="#branding" data-menu-link>Herramientas y formación (Brand Manual, Brand Center…)</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#comunicacion" data-menu-link>Comunicación</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="#comunicacion" data-menu-link>Dirección creativa y producción de campañas</a></span></li>
+              <li><span class="menu__mask"><a href="#comunicacion" data-menu-link>Planificación y compra de medios</a></span></li>
+              <li><span class="menu__mask"><a href="#comunicacion" data-menu-link>Diseño gráfico</a></span></li>
+              <li><span class="menu__mask"><a href="#comunicacion" data-menu-link>Relaciones Públicas &amp; PR</a></span></li>
+              <li><span class="menu__mask"><a href="#comunicacion" data-menu-link>Branded content</a></span></li>
+              <li><span class="menu__mask"><a href="#comunicacion" data-menu-link>Employer branding</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#experience" data-menu-link>Experience</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="#experience" data-menu-link>Diseño de espacios y producción de eventos</a></span></li>
+              <li><span class="menu__mask"><a href="#experience" data-menu-link>Diseño y producción de stands</a></span></li>
+              <li><span class="menu__mask"><a href="#experience" data-menu-link>Activaciones y experiencias de marca</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#rrss" data-menu-link>RRSS</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="#rrss" data-menu-link>Planificación de estrategias para marcas B2B y B2C</a></span></li>
+              <li><span class="menu__mask"><a href="#rrss" data-menu-link>Creación y producción de contenidos</a></span></li>
+              <li><span class="menu__mask"><a href="#rrss" data-menu-link>Gestión de comunidades, medición y análisis</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#media" data-menu-link>Media</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="#media" data-menu-link>Planificación y compra de medios</a></span></li>
+              <li><span class="menu__mask"><a href="#media" data-menu-link>Programática</a></span></li>
+              <li><span class="menu__mask"><a href="#media" data-menu-link>SEM</a></span></li>
+              <li><span class="menu__mask"><a href="#media" data-menu-link>Social ads</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#ecommerce" data-menu-link>E-commerce</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="#ecommerce" data-menu-link>Estrategia e-commerce</a></span></li>
+              <li><span class="menu__mask"><a href="#ecommerce" data-menu-link>Diseño y desarrollo de plataformas de venta</a></span></li>
+              <li><span class="menu__mask"><a href="#ecommerce" data-menu-link>Optimización de la conversión (CRO)</a></span></li>
+              <li><span class="menu__mask"><a href="#ecommerce" data-menu-link>Integración de plataformas y sistemas</a></span></li>
+              <li><span class="menu__mask"><a href="#ecommerce" data-menu-link>Automatización y fidelización</a></span></li>
+              <li><span class="menu__mask"><a href="#ecommerce" data-menu-link>Analítica y crecimiento</a></span></li>
+            </ul>
+          </div>
+          <div class="menu-svc">
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="#mkt-digital" data-menu-link>Mkt. Digital</a></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="#mkt-digital" data-menu-link>Consultoría del ecosistema digital</a></span></li>
+              <li><span class="menu__mask"><a href="#mkt-digital" data-menu-link>Diseño web</a></span></li>
+              <li><span class="menu__mask"><a href="#mkt-digital" data-menu-link>SEO</a></span></li>
+              <li><span class="menu__mask"><a href="#mkt-digital" data-menu-link>GEO</a></span></li>
+              <li><span class="menu__mask"><a href="#mkt-digital" data-menu-link>CRM y automatización</a></span></li>
+              <li><span class="menu__mask"><a href="#mkt-digital" data-menu-link>Analítica</a></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./noticias.html" data-menu-link><span class="menu__mask"><span>Noticias</span></span></a></h2>
+        <div class="menu__body menu__news">
+          <a class="menu-news" href="./noticia.html?slug=acc-nueva-etapa" data-menu-link>
+            <div class="menu-news__media" data-menu-fade><img src="./assets/news/nueva-etapa.webp" alt="" loading="lazy" decoding="async" /></div>
+            <span class="menu__mask"><span class="menu-news__title">ACC estrena una nueva forma de contar lo que viene</span></span>
+            <span class="menu__mask"><span class="menu-news__tag">Dentro de ACC</span></span>
+          </a>
+          <a class="menu-news" href="./noticia.html?slug=acc-timac-agro-fruit-attraction" data-menu-link>
+            <div class="menu-news__media" data-menu-fade><img src="./assets/news/timac-agro.webp" alt="" loading="lazy" decoding="async" /></div>
+            <span class="menu__mask"><span class="menu-news__title">Diseño y producción del stand de TIMAC AGRO en Fruit Attraction</span></span>
+            <span class="menu__mask"><span class="menu-news__tag">Experience &amp; Eventos</span></span>
+          </a>
+          <a class="menu-news" href="./noticia.html?slug=acc-radar" data-menu-link>
+            <div class="menu-news__media" data-menu-fade><img src="./assets/news/radar.webp" alt="" loading="lazy" decoding="async" /></div>
+            <span class="menu__mask"><span class="menu-news__title">Radar ACC: señales de hoy para imaginar las marcas de mañana</span></span>
+            <span class="menu__mask"><span class="menu-news__tag">Tendencias &amp; Cultura</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./talento.html" data-menu-link><span class="menu__mask"><span>Talento</span></span></a></h2>
+        <div class="menu__body menu__cols menu__cols--2">
+          <div>
+            <h3 class="menu-svc__name"><span class="menu__mask"><a href="./talento.html" data-menu-link>Trabaja con nosotros</a></span></h3>
+          </div>
+          <div>
+            <h3 class="menu-svc__name"><span class="menu__mask"><span>Posiciones abiertas</span></span></h3>
+            <ul>
+              <li><span class="menu__mask"><a href="./oferta-estratega-de-marca.html" data-menu-link>Estratega de marca</a></span></li>
+              <li><span class="menu__mask"><a href="./oferta-especialista-seo-geo.html" data-menu-link>Especialista SEO y GEO</a></span></li>
+              <li><span class="menu__mask"><a href="./oferta-disenador-grafico.html" data-menu-link>Diseñador/a gráfico/a</a></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu__sec">
+        <h2 class="menu__title"><a href="./contacto.html" data-menu-link><span class="menu__mask"><span>Contacto</span></span></a></h2>
+        <div class="menu__body menu__cols menu__cols--2">
+          <div class="menu__big">
+            <span class="menu__mask"><a href="mailto:acc@acc.com.es">acc@acc.com.es</a></span>
+            <span class="menu__mask"><a href="tel:+34943311566">+34 943 311 566</a></span>
+          </div>
+          <div>
+            <p class="menu__text"><span class="menu__mask"><span>Camino de Portuetxe 18, 2C</span></span><span class="menu__mask"><span>20018 Donostia–San Sebastián</span></span></p>
+            <div class="menu__links">
+              <span class="menu__mask"><a href="https://www.instagram.com/agencia.acc/" target="_blank" rel="noopener">Instagram</a></span>
+              <span class="menu__mask"><a href="https://www.linkedin.com/company/acc-agencia-digital" target="_blank" rel="noopener">LinkedIn</a></span>
+              <span class="menu__mask"><a href="https://www.youtube.com/user/ACCAgenciaDigital" target="_blank" rel="noopener">YouTube</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </div>
+
+  <main id="top">
+    <article class="svc-page" data-svc-tint="var(--c-peach)" aria-labelledby="svc-title">
+      <!-- ===================================================================
+           1. INTRO — «SERVICIOS» (108 / 700, el .page-head de Proyectos y
+              Nosotros: quieto hasta que el índice lo arrastra) + índice de los
+              7 servicios con la tipografía de Sectores (52 / 500; hover: el
+              resto al 50%). Sin tinte ni imagen
+           =================================================================== -->
+      <header class="svc-hero" data-theme="light">
+        <div class="page-head svc-head">
+          <h1 class="section-title" id="svc-title">Servicios</h1>
+        </div>
+
+        <nav class="svc-index" aria-label="Servicios de ACC">
+          <ol class="svc-index__list">
+            <li><a class="svc-index__link" href="#branding">Branding</a></li>
+            <li><a class="svc-index__link" href="#comunicacion">Comunicación</a></li>
+            <li><a class="svc-index__link" href="#experience">Experience</a></li>
+            <li><a class="svc-index__link" href="#rrss">RRSS</a></li>
+            <li><a class="svc-index__link" href="#media">Media</a></li>
+            <li><a class="svc-index__link" href="#ecommerce">E-commerce</a></li>
+            <li><a class="svc-index__link" href="#mkt-digital">Mkt. Digital</a></li>
+          </ol>
+        </nav>
+      </header>
+
+      <!-- ===================================================================
+           2. SERVICIOS — un bloque por servicio, contiguos. Cuando Branding llega
+              al centro de la pantalla, toda la página toma el color de
+              data-svc-tint (peach) y lo mantiene hasta que Mkt. Digital sale
+              del centro. Texto (col. 3–6): píldora y nombre 64 / 500 en una línea,
+              especialidades 24 / 500 y el enlace a Proyectos filtrado por ese
+              servicio. Medio (col. 7–10): vídeo en 4:5. Los dos,
+              agrupados en el eje central de la página.
+           =================================================================== -->
+      <section class="svc" id="branding" data-svc data-theme="light" aria-labelledby="svc-branding">
+        <!-- Especialidades: enlaces a la página de cada servicio (servicio-*.html, pendiente),
+             con las mismas anclas que el menú del resto de páginas -->
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">01</span>
+            <h2 class="svc__name" id="svc-branding">Branding</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-estrategia-de-marca.html">Estrategia de marca</a></li>
+            <li><a class="svc__item" href="./servicio-branding.html#naming">Naming</a></li>
+            <li><a class="svc__item" href="./servicio-branding.html#sistemas-de-identidad-visual">Sistemas de identidad visual</a></li>
+            <li><a class="svc__item" href="./servicio-branding.html#diseno-de-packaging">Diseño de packaging</a></li>
+            <li><a class="svc__item" href="./servicio-branding.html#herramientas-y-formacion-brand-manual-brand-center">Herramientas y formación (Brand Manual, Brand Center…)</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=branding" data-reveal><span class="svc__more-label">Ver proyectos de Branding</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-branding.mp4" poster="./assets/video/servicios-branding.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <section class="svc" id="comunicacion" data-svc data-theme="light" aria-labelledby="svc-comunicacion">
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">02</span>
+            <h2 class="svc__name" id="svc-comunicacion">Comunicación</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-comunicacion.html#direccion-creativa-y-produccion-de-campanas">Dirección creativa y producción de campañas</a></li>
+            <li><a class="svc__item" href="./servicio-comunicacion.html#planificacion-y-compra-de-medios">Planificación y compra de medios</a></li>
+            <li><a class="svc__item" href="./servicio-comunicacion.html#diseno-grafico">Diseño gráfico</a></li>
+            <li><a class="svc__item" href="./servicio-comunicacion.html#relaciones-publicas-y-pr">Relaciones Públicas &amp; PR</a></li>
+            <li><a class="svc__item" href="./servicio-comunicacion.html#branded-content">Branded content</a></li>
+            <li><a class="svc__item" href="./servicio-comunicacion.html#employer-branding">Employer branding</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=comunicacion" data-reveal><span class="svc__more-label">Ver proyectos de Comunicación</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-comunicacion.mp4" poster="./assets/video/servicios-comunicacion.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <section class="svc" id="experience" data-svc data-theme="light" aria-labelledby="svc-experience">
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">03</span>
+            <h2 class="svc__name" id="svc-experience">Experience</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-experience.html#diseno-de-espacios-y-produccion-de-eventos">Diseño de espacios y producción de eventos</a></li>
+            <li><a class="svc__item" href="./servicio-experience.html#diseno-y-produccion-de-stands">Diseño y producción de stands</a></li>
+            <li><a class="svc__item" href="./servicio-experience.html#activaciones-y-experiencias-de-marca">Activaciones y experiencias de marca</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=experience" data-reveal><span class="svc__more-label">Ver proyectos de Experience</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-experience.mp4" poster="./assets/video/servicios-experience.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <section class="svc" id="rrss" data-svc data-theme="light" aria-labelledby="svc-rrss">
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">04</span>
+            <h2 class="svc__name" id="svc-rrss">RRSS</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-rrss.html#planificacion-de-estrategias-para-marcas-b2b-y-b2c">Planificación de estrategias para marcas B2B y B2C</a></li>
+            <li><a class="svc__item" href="./servicio-rrss.html#creacion-y-produccion-de-contenidos">Creación y producción de contenidos</a></li>
+            <li><a class="svc__item" href="./servicio-rrss.html#gestion-de-comunidades-medicion-y-analisis">Gestión de comunidades, medición y análisis</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=rrss" data-reveal><span class="svc__more-label">Ver proyectos de RRSS</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-social-media.mp4" poster="./assets/video/servicios-social-media.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <section class="svc" id="media" data-svc data-theme="light" aria-labelledby="svc-media">
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">05</span>
+            <h2 class="svc__name" id="svc-media">Media</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-media.html#planificacion-y-compra-de-medios">Planificación y compra de medios</a></li>
+            <li><a class="svc__item" href="./servicio-media.html#programatica">Programática</a></li>
+            <li><a class="svc__item" href="./servicio-media.html#sem">SEM</a></li>
+            <li><a class="svc__item" href="./servicio-media.html#social-ads">Social ads</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=media" data-reveal><span class="svc__more-label">Ver proyectos de Media</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-media.mp4" poster="./assets/video/servicios-media.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <!-- Pendiente: la opción aprobada deja E-commerce sin especialidades; van las de la
+           propuesta de Gaizka («la damos por buena») hasta que se confirmen -->
+      <section class="svc" id="ecommerce" data-svc data-theme="light" aria-labelledby="svc-ecommerce">
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">06</span>
+            <h2 class="svc__name" id="svc-ecommerce">E-commerce</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-ecommerce.html#estrategia-e-commerce">Estrategia e-commerce</a></li>
+            <li><a class="svc__item" href="./servicio-ecommerce.html#diseno-y-desarrollo-de-plataformas-de-venta">Diseño y desarrollo de plataformas de venta</a></li>
+            <li><a class="svc__item" href="./servicio-ecommerce.html#optimizacion-de-la-conversion-cro">Optimización de la conversión (CRO)</a></li>
+            <li><a class="svc__item" href="./servicio-ecommerce.html#integracion-de-plataformas-y-sistemas">Integración de plataformas y sistemas</a></li>
+            <li><a class="svc__item" href="./servicio-ecommerce.html#automatizacion-y-fidelizacion">Automatización y fidelización</a></li>
+            <li><a class="svc__item" href="./servicio-ecommerce.html#analitica-y-crecimiento">Analítica y crecimiento</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=ecommerce" data-reveal><span class="svc__more-label">Ver proyectos de E-commerce</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-ecommerce.mp4" poster="./assets/video/servicios-ecommerce.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <section class="svc" id="mkt-digital" data-svc data-theme="light" aria-labelledby="svc-mkt-digital">
+        <div class="svc__text">
+          <div class="svc__head" data-reveal>
+            <span class="case-block__index">07</span>
+            <h2 class="svc__name" id="svc-mkt-digital">Mkt. Digital</h2>
+          </div>
+          <ul class="svc__list" data-reveal>
+            <li><a class="svc__item" href="./servicio-mkt-digital.html#consultoria-del-ecosistema-digital">Consultoría del ecosistema digital</a></li>
+            <li><a class="svc__item" href="./servicio-mkt-digital.html#diseno-web">Diseño web</a></li>
+            <li><a class="svc__item" href="./servicio-mkt-digital.html#seo">SEO</a></li>
+            <li><a class="svc__item" href="./servicio-mkt-digital.html#geo">GEO</a></li>
+            <li><a class="svc__item" href="./servicio-mkt-digital.html#crm-y-automatizacion">CRM y automatización</a></li>
+            <li><a class="svc__item" href="./servicio-mkt-digital.html#analitica">Analítica</a></li>
+          </ul>
+          <a class="svc__more" href="./proyectos.html?categoria=mkt-digital" data-reveal><span class="svc__more-label">Ver proyectos de Mkt. Digital</span><span class="msi" aria-hidden="true">arrow_forward</span></a>
+        </div>
+        <!-- Placeholder: vídeo de ambiente -->
+        <figure class="case-media svc__media" data-par="40" data-reveal>
+          <div class="case-media__frame">
+            <video src="./assets/video/servicios-mkt-digital.mp4" poster="./assets/video/servicios-mkt-digital.jpg"
+              muted loop playsinline preload="none" data-lazy-video aria-hidden="true"></video>
+          </div>
+        </figure>
+      </section>
+
+      <!-- ===================================================================
+           3. CIERRE — la cita de la ficha de caso (64 / 500, centrada), con la
+              frase del texto de la home. Sin tinte: al salir de
+              los servicios, la página vuelve al blanco
+           =================================================================== -->
+      <section class="case-quote svc-quote" data-theme="light" aria-label="Más de 35 años">
+        <blockquote class="case-quote__text" data-reveal>
+          <p>Llevamos más de 35 años buscando la respuesta adecuada. <span class="case-quote__hl">Nunca la de siempre</span>.</p>
+        </blockquote>
+      </section>
+    </article>
+
+    <!-- CTA final (como en Proyectos y Nosotros): círculo coral -->
+    <section class="svc-cta" data-theme="light" aria-label="Contacto">
+      <a class="circle-btn" href="./contacto.html"><span>¿Hablamos?</span></a>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FRANJA NEWSLETTER — marquee con círculos
+       =================================================================== -->
+  <a class="strip" href="./noticia.html?slug=acc-radar" data-theme="light" aria-label="Inscríbete a nuestra newsletter: El radar creativo">
+    <div class="strip__track" data-marquee data-speed="60" aria-hidden="true">
+      <div class="strip__group">
+        <span class="strip__item"><span class="strip__dot"></span>Inscríbete a nuestra newsletter — <strong>El radar creativo</strong></span>
+        <span class="strip__item"><span class="strip__dot"></span>Inscríbete a nuestra newsletter — <strong>El radar creativo</strong></span>
+        <span class="strip__item"><span class="strip__dot"></span>Inscríbete a nuestra newsletter — <strong>El radar creativo</strong></span>
+      </div>
+    </div>
+  </a>
+
+  <!-- ===================================================================
+       FOOTER
+       =================================================================== -->
+  <footer class="footer" data-theme="dark">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <span class="footer__pill">Links</span>
+        <a href="./contacto.html">Contacto</a>
+        <a href="./talento.html">Talento</a>
+        <a href="https://www.acc.com.es/es/aviso-legal" target="_blank" rel="noopener">Aviso legal</a>
+        <a href="https://www.acc.com.es/es/proteccion-datos" target="_blank" rel="noopener">Protección de datos</a>
+        <a href="https://www.acc.com.es/es/politica-cookies" target="_blank" rel="noopener">Cookies</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__pill">Contacto</span>
+        <a href="mailto:acc@acc.com.es">acc@acc.com.es</a>
+        <a href="tel:+34943311566">+34 943 311 566</a>
+        <p>Camino de Portuetxe 18, 2C<br />20018 Donostia–San Sebastián</p>
+      </div>
+      <div class="footer__col">
+        <span class="footer__pill">Social</span>
+        <a href="https://www.instagram.com/agencia.acc/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/acc-agencia-digital" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.facebook.com/AccComunicacion" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.youtube.com/user/ACCAgenciaDigital" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <div class="footer__group">
+        <p>Somos ACC.<br />Y somos Grupo ACC.</p>
+        <img src="./assets/brand/group/grupo-acc-blanco.svg" alt="Grupo ACC" />
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <a class="footer__logo" href="#top" aria-label="ACC — Volver al inicio">
+        <img src="./assets/brand/logo-blanco.svg" alt="ACC" />
+      </a>
+      <div class="footer__credits">
+        <p>©ACC 2026</p>
+        <p>ACC Comunicación · Grupo ACC</p>
+        <p>Donostia – San Sebastián</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="./js/caso.js"></script>
+  <script src="./js/servicios.js"></script>
+  <script src="./js/menu.js"></script>
+</body>
+
+</html>

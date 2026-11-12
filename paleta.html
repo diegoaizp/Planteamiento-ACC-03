@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Paleta · ACC 6 BOLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap" rel="stylesheet" />
+  <!-- Iconos: Material Symbols (fonts.google.com/icons), solo los que usa la página -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=check,content_copy&display=block" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--c-white); color: var(--c-black); font-family: var(--font); font-size: var(--t-body); font-weight: 400; line-height: 1.6; padding: 0 var(--pad) 120px; }
+    a { color: inherit; }
+
+    .msi { font-family: "Material Symbols Outlined"; font-weight: normal; font-style: normal; font-size: 1.2em; line-height: 1; display: inline-block; white-space: nowrap; direction: ltr; -webkit-font-smoothing: antialiased; font-feature-settings: "liga"; font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48; vertical-align: -0.2em; user-select: none; }
+
+    header { padding: 56px 0 48px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--c-black); }
+    h1 { margin: 0; font-size: clamp(40px, 7vw, 108px); font-weight: 700; line-height: 1.1; text-transform: uppercase; letter-spacing: -0.02em; }
+    header p { margin: 0; max-width: 360px; color: var(--c-meta); font-weight: 500; letter-spacing: -0.02em; }
+
+    nav { position: sticky; top: 0; z-index: 5; display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 0; background: var(--c-white); font-weight: 500; letter-spacing: -0.02em; }
+    nav a { text-decoration: none; color: var(--c-meta); }
+    nav a:hover { color: var(--c-black); text-decoration: underline; text-decoration-thickness: .06em; text-underline-offset: .1em; }
+
+    section { padding-top: 72px; }
+    h2 { margin: 0 0 8px; font-size: var(--t-subtitle); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; }
+    .lead { margin: 0 0 40px; color: var(--c-meta); max-width: 720px; }
+    .lead code, td code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85em; }
+
+    /* ---- Chip de color ---- */
+    .sw { position: relative; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; min-height: 120px; padding: 16px; background: var(--bg); color: var(--fg); transition: transform var(--dur-fast) var(--ease-out); }
+    .sw:hover { transform: translateY(-3px); }
+    .sw:focus-visible { outline: 2px solid var(--c-black); outline-offset: 3px; }
+    .sw__name { font-weight: 600; letter-spacing: -0.02em; }
+    .sw__hex { font-weight: 500; font-variant-numeric: tabular-nums; text-transform: uppercase; }
+    .sw__var, .sw__ctr { font-size: 13px; opacity: .75; line-height: 1.4; }
+    .sw__ico { position: absolute; top: 12px; right: 12px; font-size: 18px; opacity: 0; transition: opacity var(--dur-fast); }
+    .sw:hover .sw__ico, .sw.is-copied .sw__ico { opacity: .8; }
+    .sw--line { box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+
+    /* ---- Paleta en pares ---- */
+    .pairs { display: grid; gap: 12px; }
+    .pair { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 12px; align-items: stretch; }
+    .pair__label { display: flex; flex-direction: column; justify-content: flex-end; font-weight: 600; font-size: var(--t-h3); letter-spacing: -0.02em; line-height: 1.2; padding-bottom: 4px; }
+    .pair__label small { font-size: 14px; font-weight: 400; color: var(--c-meta); letter-spacing: 0; margin-top: 4px; }
+    .pair .sw { min-height: 160px; }
+    .pairs__head { display: grid; grid-template-columns: 140px 1fr 1fr; gap: 12px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; color: var(--c-meta); }
+
+    /* ---- Rejillas ---- */
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .sub { margin: 56px 0 16px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; color: var(--c-meta); }
+    .sub:first-of-type { margin-top: 0; }
+
+    /* ---- Tablas ---- */
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 14px 16px 14px 0; border-top: 1px solid rgba(0,0,0,.12); vertical-align: top; }
+    th { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -0.02em; color: var(--c-meta); border-top: 0; border-bottom: 1px solid var(--c-black); }
+    td:first-child { white-space: nowrap; }
+    .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: -2px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.15); }
+
+    /* ---- Pesos ---- */
+    .weights { display: grid; gap: 0; }
+    .w-row { display: grid; grid-template-columns: 120px 1fr 280px; gap: 24px; align-items: baseline; padding: 20px 0; border-top: 1px solid rgba(0,0,0,.12); }
+    .w-row:first-child { border-top: 0; }
+    .w-row b { font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: -0.02em; color: var(--c-meta); }
+    .w-row .sample { font-size: clamp(28px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.02em; }
+    .w-row span.use { font-size: 14px; color: var(--c-meta); }
+
+    .toast { position: fixed; left: 50%; bottom: 32px; transform: translate(-50%, 20px); background: var(--c-black); color: var(--c-white); padding: 10px 20px; font-weight: 500; letter-spacing: -0.02em; opacity: 0; pointer-events: none; transition: opacity var(--dur-fast), transform var(--dur-fast) var(--ease-out); z-index: 10; }
+    .toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 809px) {
+      body { padding: 0 var(--pad) 80px; }
+      .pair, .pairs__head { grid-template-columns: 1fr 1fr; }
+      .pair__label { grid-column: 1 / -1; padding: 8px 0 0; }
+      .pairs__head > :first-child { display: none; }
+      .w-row { grid-template-columns: 1fr; gap: 6px; }
+      section { padding-top: 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Paleta<br />de color</h1>
+  <p>Todos los colores del sistema de diseño de ACC 6 BOLD, con su valor, su variable CSS, su peso (claro / profundo) y dónde se usa. Clic en un color para copiar el hex.</p>
+</header>
+
+<nav aria-label="Secciones">
+  <a href="#base">Base</a>
+  <a href="#pares">Paleta en pares</a>
+  <a href="#acc">Marca ACC</a>
+  <a href="#alfa">Transparencias</a>
+  <a href="#sectores">Sectores</a>
+  <a href="#tipografia">Pesos tipográficos</a>
+</nav>
+
+<section id="base">
+  <h2>Base</h2>
+  <p class="lead">Negro y blanco sostienen toda la página; los grises solo marcan jerarquía en metadatos.</p>
+  <div class="grid" data-swatches='[
+    {"n":"Black","v":"--c-black","h":"#000000","u":"Texto, fondos oscuros, líneas"},
+    {"n":"White","v":"--c-white","h":"#ffffff","u":"Fondo de página"},
+    {"n":"Meta","v":"--c-meta","h":"#666666","u":"Tags y metadatos sobre blanco"},
+    {"n":"Meta inv.","v":"--c-meta-inv","h":"#999999","u":"Tags y metadatos sobre negro"},
+    {"n":"Foto","v":"(literal)","h":"#f2f2f2","u":"Fondo de foto en Personas y placeholders"}
+  ]'></div>
+</section>
+
+<section id="pares">
+  <h2>Paleta en pares</h2>
+  <p class="lead">Cada color tiene dos pesos. El <strong>claro</strong> es el de las formas, los logos y el tinte de página; el <strong>profundo</strong> es el de fondo en hover. Con el claro, el texto va en negro.</p>
+  <div class="pairs__head"><span></span><span>Claro · forma</span><span>Profundo · fondo</span></div>
+  <div class="pairs" id="pairs"></div>
+</section>
+
+<section id="acc">
+  <h2>Marca ACC</h2>
+  <p class="lead">Son los colores de contenido propio de ACC: menú, CTAs, newsletter y Noticias.</p>
+  <div class="grid" data-swatches='[
+    {"n":"ACC coral","v":"--c-acc-coral","h":"#ff5850","u":"Menú, CTA «Más proyectos», franja newsletter"},
+    {"n":"ACC pink","v":"--c-acc-pink","h":"#fbc2f2","u":"Tinte de Nosotros (cita «desde 1990»)"},
+    {"n":"ACC mint","v":"--c-acc-mint","h":"#b9d7cf","u":"CTA «Todas las noticias», fondo de Noticias"},
+    {"n":"ACC mint light","v":"--c-acc-mint-light","h":"#dae8e4","u":"Fondo de Noticias"}
+  ]'></div>
+</section>
+
+<section id="alfa">
+  <h2>Transparencias</h2>
+  <p class="lead">Negro y blanco con opacidad. Se muestran sobre su fondo habitual.</p>
+  <table>
+    <thead><tr><th>Valor</th><th>Variable</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td><span class="dot" style="background:rgba(0,0,0,.5)"></span><code>rgba(0,0,0,.5)</code></td><td><code>--c-muted</code></td><td>Ítems inactivos de listas en hover (el resto baja al 50%)</td></tr>
+      <tr><td><span class="dot" style="background:rgba(0,0,0,.3)"></span><code>rgba(0,0,0,.3)</code></td><td>literal</td><td>Velo del hero, líneas del menú y de la lista de ofertas (Talento)</td></tr>
+      <tr><td><span class="dot" style="background:rgba(0,0,0,.12)"></span><code>rgba(0,0,0,.12)</code></td><td>literal</td><td>Fondo de carga de las imágenes del menú</td></tr>
+      <tr><td><span class="dot" style="background:rgba(0,0,0,.06)"></span><code>rgba(0,0,0,.06)</code></td><td>literal</td><td>Fondo de carga de imágenes en Noticias y Servicios (6%)</td></tr>
+      <tr><td><span class="dot" style="background:#000"></span><span class="dot" style="background:rgba(255,255,255,.5);margin-left:-22px;margin-right:16px"></span><code>rgba(255,255,255,.5)</code></td><td>literal</td><td>Proyecto en «Siguiente caso» y texto secundario sobre negro</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="sectores">
+  <h2>Color por sector</h2>
+  <p class="lead">El sector de un proyecto decide el color con el que se tiñe la página en hover y el color de la cita en la ficha del caso (<code>--case-c</code> / <code>--case-c-deep</code>).</p>
+  <table id="sectors">
+    <thead><tr><th>Sector</th><th>Color</th><th>Claro</th><th>Profundo</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+<section id="tipografia">
+  <h2>Pesos tipográficos · Scto Grotesk A</h2>
+  <p class="lead">Los pesos cargados son 400, 500, 600, 700 y 900. Cada rol del sistema usa uno fijo.</p>
+  <div class="weights">
+    <div class="w-row"><b>400 · Regular</b><div class="sample" style="font-weight:400">Cuerpo y tags</div><span class="use">Cuerpo 16, tags 16, marquee 20</span></div>
+    <div class="w-row"><b>500 · Medium</b><div class="sample" style="font-weight:500">Nav, subtítulos, listas</div><span class="use">Nav 16, botón 18, h3 24, subtítulo 38, lista 52</span></div>
+    <div class="w-row"><b>600 · Semibold</b><div class="sample" style="font-weight:600">Manifiesto y claim</div><span class="use">Statement 64, claim 60, proyecto 24 (<code>--w-project</code>)</span></div>
+    <div class="w-row"><b>700 · Bold</b><div class="sample" style="font-weight:700;text-transform:uppercase">Títulos de sección</div><span class="use">Sección 108 en MAYÚSCULAS</span></div>
+    <div class="w-row"><b>900 · Black</b><div class="sample" style="font-weight:900;text-transform:uppercase">Mega</div><span class="use">Marquee gigante del hero, 807</span></div>
+  </div>
+</section>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  // ---- utilidades de color ----
+  function lum(hex) {
+    var n = parseInt(hex.slice(1), 16), c = [n >> 16 & 255, n >> 8 & 255, n & 255].map(function (v) {
+      v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4);
+    });
+    return .2126 * c[0] + .7152 * c[1] + .0722 * c[2];
+  }
+  function ratio(a, b) { var x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); }
+
+  function swatch(o) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    var onBlack = ratio(o.h, '#000000'), onWhite = ratio(o.h, '#ffffff');
+    var fg = onBlack >= onWhite ? '#000' : '#fff';
+    var best = Math.max(onBlack, onWhite);
+    b.className = 'sw' + (lum(o.h) > .85 ? ' sw--line' : '');
+    b.style.setProperty('--bg', o.h); b.style.setProperty('--fg', fg);
+    b.setAttribute('aria-label', 'Copiar ' + o.h.toUpperCase() + ' · ' + o.n);
+    b.innerHTML = '<span class="msi sw__ico" aria-hidden="true">content_copy</span>' +
+      '<span class="sw__name">' + o.n + '</span>' +
+      '<span class="sw__hex">' + o.h + '</span>' +
+      '<span class="sw__var">' + (o.v || '') + '</span>' +
+      (o.u ? '<span class="sw__var">' + o.u + '</span>' : '') +
+      '<span class="sw__ctr">Texto ' + (fg === '#000' ? 'negro' : 'blanco') + ' · ' + best.toFixed(1) + ':1</span>';
+    b.addEventListener('click', function () { copy(o.h.toUpperCase(), b); });
+    return b;
+  }
+
+  // ---- copiar ----
+  var toast = document.getElementById('toast'), tt;
+  function copy(text, el) {
+    var done = function () {
+      toast.textContent = 'Copiado ' + text; toast.classList.add('is-on');
+      var ic = el.querySelector('.sw__ico'); ic.textContent = 'check'; el.classList.add('is-copied');
+      clearTimeout(tt); tt = setTimeout(function () {
+        toast.classList.remove('is-on'); el.classList.remove('is-copied'); ic.textContent = 'content_copy';
+      }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
+    else done();
+  }
+
+  // ---- datos ----
+  var pairs = [
+    ['Coral',  'coral',  '#ff5850', '#b3261f'],
+    ['Yellow', 'yellow', '#ffd650', '#ffb900'],
+    ['Lilac',  'lilac',  '#ca9df1', '#81649a'],
+    ['Sky',    'sky',    '#93d4f2', '#295c93'],
+    ['Green',  'green',  '#0daa75', '#2f6855'],
+    ['Peach',  'peach',  '#f3c6b1', '#af3540'],
+    ['Pink',   'pink',   '#f08fc7', '#a92571'],
+    ['Stone',  'stone',  '#aeaeb2', '#c7c7cc']
+  ];
+  var pairsEl = document.getElementById('pairs');
+  pairs.forEach(function (p) {
+    var row = document.createElement('div'); row.className = 'pair';
+    var l = document.createElement('div'); l.className = 'pair__label';
+    l.innerHTML = p[0] + '<small>--c-' + p[1] + ' / --c-' + p[1] + '-deep</small>';
+    row.appendChild(l);
+    row.appendChild(swatch({ n: p[0], v: '--c-' + p[1], h: p[2], u: 'Claro' }));
+    row.appendChild(swatch({ n: p[0] + ' deep', v: '--c-' + p[1] + '-deep', h: p[3], u: 'Profundo' }));
+    pairsEl.appendChild(row);
+  });
+
+  document.querySelectorAll('[data-swatches]').forEach(function (g) {
+    JSON.parse(g.getAttribute('data-swatches')).forEach(function (o) { g.appendChild(swatch(o)); });
+    g.removeAttribute('data-swatches');
+  });
+
+  var map = {}; pairs.forEach(function (p) { map[p[1]] = p; });
+  var sectors = [
+    ['Alimentación', 'yellow'], ['Retail', 'lilac'], ['Deporte', 'sky'], ['Educación', 'green'],
+    ['Cultura', 'peach'], ['Moda', 'pink'], ['Industria', 'stone'], ['Turismo', 'yellow'],
+    ['Ciencia y tecnología', 'lilac']
+  ];
+  var tb = document.querySelector('#sectors tbody');
+  sectors.forEach(function (s) {
+    var p = map[s[1]], tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + s[0] + '</td>' +
+      '<td><span class="dot" style="background:' + p[2] + '"></span>' + p[0] + '</td>' +
+      '<td><code>' + p[2] + '</code></td><td><code>' + p[3] + '</code></td>';
+    tb.appendChild(tr);
+  });
+})();
+</script>
+</body>
+</html>

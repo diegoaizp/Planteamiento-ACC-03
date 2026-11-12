@@ -1,0 +1,102 @@
+/* =========================================================================
+   ACC 6 BOLD — Design tokens
+   Tokens del sistema de diseño ACC 6 BOLD.
+   Ver DESIGN-SYSTEM.md para el razonamiento de cada decisión.
+   ========================================================================= */
+
+/* ---- Scto Grotesk A ---- */
+@font-face { font-family: "Scto Grotesk A"; font-weight: 400; font-style: normal; font-display: swap; src: url("../assets/fonts/SctoGroteskA-Regular.otf") format("opentype"); }
+@font-face { font-family: "Scto Grotesk A"; font-weight: 500; font-style: normal; font-display: swap; src: url("../assets/fonts/SctoGroteskA-Medium.otf") format("opentype"); }
+@font-face { font-family: "Scto Grotesk A"; font-weight: 600; font-style: normal; font-display: swap; src: url("../assets/fonts/SctoGroteskA-Bold.otf") format("opentype"); } /* sin SemiBold: 600 → Bold */
+@font-face { font-family: "Scto Grotesk A"; font-weight: 700; font-style: normal; font-display: swap; src: url("../assets/fonts/SctoGroteskA-Bold.otf") format("opentype"); }
+@font-face { font-family: "Scto Grotesk A"; font-weight: 900; font-style: normal; font-display: swap; src: url("../assets/fonts/SctoGroteskA-Black.otf") format("opentype"); }
+
+:root {
+  /* ---- Color · base ---------------------------------------------------- */
+  --c-black: #000000;
+  --c-white: #ffffff;
+  --c-meta: #666666;              /* tags / metadatos sobre blanco */
+  --c-meta-inv: #999999;          /* tags / metadatos sobre negro */
+  --c-muted: rgba(0, 0, 0, 0.5);  /* ítems inactivos de lista en hover */
+
+  /* ---- Color · paleta en pares (claro = forma, profundo = fondo) ------- */
+  --c-coral:  #ff5850;  --c-coral-deep:  #b3261f;
+  --c-yellow: #ffd650;  --c-yellow-deep: #ffb900;
+  --c-lilac:  #ca9df1;  --c-lilac-deep:  #81649a;
+  --c-sky:    #93d4f2;  --c-sky-deep:    #295c93;
+  --c-green:  #0daa75;  --c-green-deep:  #2f6855;
+  --c-peach:  #f3c6b1;  --c-peach-deep:  #af3540;
+  --c-pink:   #f08fc7;  --c-pink-deep:   #a92571;
+  --c-stone:  #aeaeb2;  --c-stone-deep:  #c7c7cc;
+
+  /* ---- Color · marca ACC (marca ACC) ------------------------- */
+  --c-acc-pink: #fbc2f2;          /* fondo de Noticias */
+  --c-acc-coral: #ff5850;         /* CTA «Más proyectos» y franja newsletter */
+  --c-acc-mint: #b9d7cf;          /* CTA «Todas las noticias» */
+  --c-acc-mint-light: #dae8e4;    /* fondo de Noticias */
+
+  /* ---- Tipografía ------------------------------------------------------ */
+  --font: "Scto Grotesk A", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Escala · desktop (≥1200px) */
+  --t-mega: 807px;          /* 900 · lh 1        — marquee gigante del hero */
+  --t-section: 104px;       /* 700 · lh 1.1      — títulos de sección (MAYÚSCULAS) */
+  --t-statement: 62px;      /* 600 · lh 1.2      — manifiesto con formas inline */
+  --t-claim: 58px;          /* 600 · lh 1.2      — tope del claim del hero (en desktop lo ajusta js/main.js a la frase más larga) */
+  --t-list: 50px;           /* 500 · lh 1.2      — lista de sectores */
+  --t-subtitle: 37px;       /* 500 · lh 1.2      — subtítulo de sección */
+  --t-h3: 23px;             /* 500 · lh 1.2      — títulos de tarjeta / etiquetas */
+  --t-button: 18px;         /* 500 · lh 1.6 · -0.02em */
+  --t-nav: 16px;            /* 500 · lh 1.4 · -0.02em */
+  --t-body: 16px;           /* 400 · lh 1.6 */
+  --t-tag: 16px;            /* 400 · lh 1.6 */
+  --t-marquee: 20px;        /* 400 · lh 1 (ampliado) */
+
+  --w-list: 500;
+  --w-project: 600;        /* marca + título de proyecto (tarjetas y listado de Proyectos) */
+
+  /* ---- Espacio --------------------------------------------------------- */
+  --pad: 40px;              /* margen lateral global */
+  --nav-top: 55px;          /* línea superior de la nav */
+  --sticky-title-top: 130px;
+  --row-gap: 120px;         /* entre filas del grid de casos */
+  --strip-h: 48px;          /* franja marquee newsletter */
+  --logos-h: 52px;          /* franja de logos de clientes */
+
+  /* ---- Movimiento ------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.25s;
+  --dur: 0.45s;
+}
+
+/* Tablet (810–1199px) */
+@media (max-width: 1199px) {
+  :root {
+    --t-claim: 50px;
+    --t-section: 70px;
+    --t-list: 40px;
+    --t-h3: 19px;
+  }
+}
+
+/* Móvil (<810px) */
+@media (max-width: 809px) {
+  :root {
+    --t-mega: 707px;
+    --t-section: 38px;
+    --t-statement: 35px;
+    --t-claim: 46px;
+    --t-list: 23px;
+    --t-subtitle: 19px;
+    --t-h3: 16px;
+    --t-tag: 14px;
+    --t-marquee: 17px;
+    --strip-h: 42px;
+    --w-list: 600;
+    --pad: 16px;
+    --nav-top: 20px;
+    --sticky-title-top: 96px;
+    --row-gap: 56px;
+  }
+}
